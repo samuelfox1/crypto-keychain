@@ -1,96 +1,97 @@
-// Assignment Code
+//================PASSWORD GENERATOR========================
+
+// establish button variable
 var generateBtn = document.querySelector("#generate");
-
-
 // launch program when button clicked
 generateBtn.addEventListener("click", correctEntry);
 
 
-//edge case verify entry
+//edge case, verify legal input values
 function correctEntry() {
+  // prompt user for input and store value in variable
   userInput = prompt('enter password length from 8 to 128 characters')
-  console.log(userInput)
-  if (parseInt(userInput) > 7 && parseInt(userInput) < 129) {
+  //convert user input string to integer and store in variable
+  passwordLength = parseInt(userInput)
+  //verify legal user prompt input
+  if (passwordLength > 7 && passwordLength < 129) {
+    // if user input is legal, run function
     generatePassword()
+    // if user input is illegal,
   } else {
     alert('Please Try Again')
   }
 }
 
 function generatePassword() {
-
+  
   //define function's local variables
-  var alphaLow = true
-  var alphaLowChars = ('abcdefghijklmnopqrstuvwxyz')
-  var alphaUp = true
-  var alphaUpChars = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-  var numeric = true
+  
+  var alphaLowerChars = ('abcdefghijklmnopqrstuvwxyz')
+  
+  var alphaUpperChars = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+  
   var numericChars = ('1234567890')
-  var special = true
+  
   var specialChars = ('!"#$%&*+-/;<=>?@\^_`|~')
   var userInputArr = []
-  var userInput = ''
   var password = ''
   var randomCharArr = []
   var randomCharVal = ''
 
-  //================================================
-
-  // confirm options
-  alphaLow = confirm('Include lowercase characters?')
-  console.log(alphaLow)
-  alphaHigh = confirm('Include UPPERCASE characters?')
-  console.log(alphaHigh)
-  // numeric = confirm('Include numebers?')
-  // console.log(numeric)
-  // special = confirm('Include special characters?')
-  // console.log(special)
+  var userChoicesArr = []
   
-
-  if (alphaLow = true){
-  randomCharVal = Math.floor(Math.random() * alphaLowChars.length)
-  randomCharArr.push(alphaLowChars[randomCharVal])
-  password = password + (alphaLowChars[randomCharVal])
-
-  console.log(randomCharArr, randomCharVal, password)
+  //================================================
+  
+  //function to pick a random value from array 'x' and add it to our password string
+  function generate(x) {
+    randomCharVal = Math.floor(Math.random() * x.length)
+    randomCharArr.push(x[randomCharVal])
+    password = password + (x[randomCharVal])
+    
   }
-  if (alphaUp = true){
-  randomCharVal = Math.floor(Math.random() * alphaUpChars.length)
-  randomCharArr.push(alphaUpChars[randomCharVal])
-  password = password + (alphaUpChars[randomCharVal])
-
-  console.log(randomCharArr, randomCharVal, password)
+  
+  function addToBox(x) {
+    if (x === true)
+    userChoicesArr.push()
   }
-
-
-  // var password = generatePassword();
-  // define container to store password
+  
+  //================================================
+  
+  // confirm options
+  alphaLower = confirm('Include lowercase characters?')   
+  alphaUpper = confirm('Include UPPERCASE characters?')
+  numeric = confirm('Include numebers?')
+  special = confirm('Include special characters?')  
+  
+  //run loop as many times as password length input
+  for (let index = 0; index < passwordLength; index++) { 
+    //use option if selected & decrease password length by 1
+    if (alphaLower === true) {
+      generate(alphaLowerChars)
+      --passwordLength
+    }
+    //use option if selected & decrease password length by 1
+    if (alphaUpper === true) {
+      generate(alphaUpperChars)   
+      --passwordLength 
+    }
+    //use option if selected & decrease password length by 1
+    if (numeric === true) {
+      generate(numericChars)
+      --passwordLength
+    }
+    //use option if selected & decrease password length by 1
+    if (special === true) {
+      generate(specialChars)
+      --passwordLength
+    }
+    
+  }
+  
+  // store our password here
   var passwordText = document.querySelector("#password");
   // password is written to the page
   passwordText.value = password;
 }
 
-
-
-
-
-//---------------------I need a new, secure password-------------------------
-
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-//TODO: prompt user for character length 8 -128, set as var
-//TODO: set edge case, numbers only, 8-128
-
-// WHEN prompted for password criteria
-// select criteria to include in the password 
-  //TODO: prompt for lower case letters, set as     var level1
-  //TODO: prompt for upper case letters, set as     var level2
-  //TODO: prompt for numbers, set as                var level3      
-  //TODO: prompt for special characters, set as     var level4
-
-
-
-
-// WHEN all prompts are answered
-  // store password in a     var password
 
