@@ -16,7 +16,7 @@ function correctEntry() {
   if (passwordLength > 7 && passwordLength < 129) {
     // if user input is legal, run function
     generatePassword()
-    // if user input is illegal,
+    // if user input is illegal, alert user to try again
   } else {
     alert('Please Try Again')
   }
@@ -24,25 +24,20 @@ function correctEntry() {
 
 function generatePassword() {
   
-  //define function's local variables
-  
-  var alphaLowerChars = ('abcdefghijklmnopqrstuvwxyz')
-  
-  var alphaUpperChars = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-  
-  var numericChars = ('1234567890')
-  
+  //define local function variables  
+  var alphaLowerChars = ('abcdefghijklmnopqrstuvwxyz')  
+  var alphaUpperChars = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ')  
+  var numericChars = ('1234567890')  
   var specialChars = ('!"#$%&*+-/;<=>?@\^_`|~')
-  var userInputArr = []
   var password = ''
   var randomCharArr = []
   var randomCharVal = ''
-
   var userChoicesArr = []
+  var userInputArr = [] 
   
   //================================================
   
-  //function to pick a random value from array 'x' and add it to our password string
+  //pick a random value from array 'x' and add it to our password string
   function generate(x) {
     randomCharVal = Math.floor(Math.random() * x.length)
     randomCharArr.push(x[randomCharVal])
@@ -57,7 +52,7 @@ function generatePassword() {
   
   //================================================
   
-  // confirm options
+  // record user input of password character options
   alphaLower = confirm('Include lowercase characters?')   
   alphaUpper = confirm('Include UPPERCASE characters?')
   numeric = confirm('Include numebers?')
@@ -65,22 +60,22 @@ function generatePassword() {
   
   //run loop as many times as password length input
   for (let index = 0; index < passwordLength; index++) { 
-    //use option if selected & decrease password length by 1
+    //include character option if selected & decrease password length by 1 if used
     if (alphaLower === true) {
       generate(alphaLowerChars)
       --passwordLength
     }
-    //use option if selected & decrease password length by 1
+    //include character option if selected & decrease password length by 1 if used
     if (alphaUpper === true) {
       generate(alphaUpperChars)   
       --passwordLength 
     }
-    //use option if selected & decrease password length by 1
+    //include character option if selected & decrease password length by 1 if used
     if (numeric === true) {
       generate(numericChars)
       --passwordLength
     }
-    //use option if selected & decrease password length by 1
+    //include character option if selected & decrease password length by 1 if used
     if (special === true) {
       generate(specialChars)
       --passwordLength
