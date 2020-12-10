@@ -88,5 +88,3 @@ function generatePassword() {
   // password is written to the page
   passwordText.value = password;
 }
-
-
