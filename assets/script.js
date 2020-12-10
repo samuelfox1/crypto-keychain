@@ -38,7 +38,7 @@ function generatePassword() {
   //================================================
   
   //pick a random value from array 'x' and add it to our password string
-  function generate(x) {
+  function pickRndmChar(x) {
     randomCharVal = Math.floor(Math.random() * x.length)
     randomCharArr.push(x[randomCharVal])
     password = password + (x[randomCharVal])
@@ -62,22 +62,22 @@ function generatePassword() {
   for (let index = 0; index < passwordLength; index++) { 
     //include character option if selected & decrease password length by 1 if used
     if (alphaLower === true) {
-      generate(alphaLowerChars)
+      pickRndmChar(alphaLowerChars)
       --passwordLength
     }
     //include character option if selected & decrease password length by 1 if used
     if (alphaUpper === true) {
-      generate(alphaUpperChars)   
+      pickRndmChar(alphaUpperChars)   
       --passwordLength 
     }
     //include character option if selected & decrease password length by 1 if used
     if (numeric === true) {
-      generate(numericChars)
+      pickRndmChar(numericChars)
       --passwordLength
     }
     //include character option if selected & decrease password length by 1 if used
     if (special === true) {
-      generate(specialChars)
+      pickRndmChar(specialChars)
       --passwordLength
     }
     
