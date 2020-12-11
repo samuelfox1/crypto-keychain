@@ -46,7 +46,7 @@ function correctEntry() {
 }
 //if lowercase is desired, index 'lowercase' in selectionsArray, then move to next promt
 function selectionLowerCase() {
-  x = confirm('Include lowercase characters?')
+  x = confirm('Include lowercase letters?')
   if (x === true) {
     x = "lowercase"
     selectionsArray.push(x)
@@ -58,7 +58,7 @@ function selectionLowerCase() {
 }
 //if uppercase is desired, index 'uppercase' in selectionsArray, then move to next prompt
 function selectionUpperCase() {
-  x = confirm('Include UPPERCASE characters?')
+  x = confirm('Include UPPERCASE letters?')
   if (x === true) {
     x = "UPPERCASE"
     selectionsArray.push(x)
@@ -70,7 +70,7 @@ function selectionUpperCase() {
 }
 //if number is desired, index 'number' in selectionsArray, then move to next prompt
 function selectionNumber() {
-  x = confirm('Include number characters?')
+  x = confirm('Include number?')
   if (x === true) {
     x = "number"
     selectionsArray.push(x)
