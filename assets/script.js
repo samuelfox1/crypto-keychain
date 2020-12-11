@@ -15,20 +15,20 @@ var selectionsArray = []
 console.log('program ready')
 
 
-generateBtn.addEventListener("click", function(){
+generateBtn.addEventListener("click", function () {
   //clear variables for looped use
-  
-  selectionsArray=[]
-  password=''
+
+  selectionsArray = []
+  password = ''
   console.log('program started')
-  
+
   // launch program when button clicked
-  correctEntry()  
+  correctEntry()
 })
 
 
 //edge case, verify legal input values
-function correctEntry() {    
+function correctEntry() {
   // prompt user for input and store value in variable
   userInput = prompt('enter desired password length between 8 and 128 characters')
   //convert user input string to integer and store in variable
@@ -70,7 +70,7 @@ function selectionUpperCase() {
 }
 //if number is desired, index 'number' in selectionsArray, then move to next prompt
 function selectionNumber() {
-  x = confirm('Include number?')
+  x = confirm('Include numbers?')
   if (x === true) {
     x = "number"
     selectionsArray.push(x)
@@ -113,15 +113,15 @@ function generatePassword() {
         //add the chosen character to the password string
         password = password + (alphaLowerChars[l])
       }
-      
+
       //if random number matches the 'UPPERCASE' index, choose index. If it does not match, try next index
-      else if (selectionsArray[x] === 'UPPERCASE') {        
+      else if (selectionsArray[x] === 'UPPERCASE') {
         //generate random number to choose a character index
         u = Math.floor(Math.random() * alphaUpperChars.length)
         //add the chosen character to the password string
         password = password + (alphaUpperChars[u])
       }
-      
+
       //if random number matches the 'number' index, choose index. If it does not match, try next index
       else if (selectionsArray[x] === 'number') {
         //generate random number to choose a character index
@@ -129,7 +129,7 @@ function generatePassword() {
         //add the chosen character to the password string
         password = password + (numericChars[n])
       }
-      
+
       //if random number matches the 'special' index, choose index. If it does not match, try next index
       else if (selectionsArray[x] === 'special') {
         //generate random number to choose a character index
@@ -146,7 +146,7 @@ function generatePassword() {
     //password is written to the page
     passwordText.value = password;
     //password is cleared from memory
-    password= ''
+    password = ''
     console.log('password erased from program')
   }
 }
