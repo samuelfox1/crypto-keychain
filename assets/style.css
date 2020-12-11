@@ -58,7 +58,12 @@ header {
 .card-footer {
   text-align: center;
 }
+.author{
+  margin: 1% auto;
+  text-align: center;
+  color: hsl(0, 20%, 32%);
 
+}
 .card-footer::before {
   content: " ";
   display: block;
@@ -75,7 +80,7 @@ header {
 
 .btn {
   border: none;
-  background-color: rgb(173, 63, 63);
+  background-color: rgb(165, 39, 39);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
