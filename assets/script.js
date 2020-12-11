@@ -45,17 +45,13 @@ function generatePassword() {
     
   }
   
-  function addToBox(x) {
-    if (x === true)
-    userChoicesArr.push()
-  }
-  
+ 
   //================================================
   
   // record user input of password character options
   alphaLower = confirm('Include lowercase characters?')   
   alphaUpper = confirm('Include UPPERCASE characters?')
-  numeric = confirm('Include numebers?')
+  numeric = confirm('Include numbers?')
   special = confirm('Include special characters?')  
   
   //run loop as many times as password length input
