@@ -30,7 +30,7 @@ generateBtn.addEventListener("click", function () {
 //edge case, verify legal input values
 function correctEntry() {
   // prompt user for input and store value in variable
-  userInput = prompt('enter desired password length between 8 and 128 characters')
+  userInput = prompt('How long do you want your new password to be? Enter a number between 8 and 128.')
   //convert user input string to integer and store in variable
   passwordLength = parseInt(userInput)
   //verify legal user prompt input
@@ -44,9 +44,10 @@ function correctEntry() {
     alert('Please enter a number between 8 - 128')
   }
 }
+
 //if lowercase is desired, index 'lowercase' in selectionsArray, then move to next promt
 function selectionLowerCase() {
-  x = confirm('Include lowercase letters?')
+  x = confirm('Do you want to include lowercase letters? Yes - OK , no - Cancel.')
   if (x === true) {
     x = "lowercase"
     selectionsArray.push(x)
@@ -56,9 +57,10 @@ function selectionLowerCase() {
     selectionUpperCase()
   }
 }
+
 //if uppercase is desired, index 'uppercase' in selectionsArray, then move to next prompt
 function selectionUpperCase() {
-  x = confirm('Include UPPERCASE letters?')
+  x = confirm('Do you want to inclucd UPPERCASE letters? Yes - OK , no - Cancel.')
   if (x === true) {
     x = "UPPERCASE"
     selectionsArray.push(x)
@@ -68,9 +70,10 @@ function selectionUpperCase() {
     selectionNumber()
   }
 }
+
 //if number is desired, index 'number' in selectionsArray, then move to next prompt
 function selectionNumber() {
-  x = confirm('Include numbers?')
+  x = confirm('Do you want to include numbers? Yes - OK , no - Cancel.')
   if (x === true) {
     x = "number"
     selectionsArray.push(x)
@@ -80,9 +83,10 @@ function selectionNumber() {
     selectionSpecial()
   }
 }
+
 //if special characters are desired, index 'special' in selectionsArray, then start generatePassword function
 function selectionSpecial() {
-  x = confirm('Include special characters?')
+  x = confirm('Do you want to include special characters? Yes - OK , no - Cancel.')
   if (x === true) {
     x = "special"
     selectionsArray.push(x)
