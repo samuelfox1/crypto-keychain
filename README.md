@@ -1,13 +1,13 @@
 # password-generator
 Built in December 2020 
 
-****** This application is live at https://samuelfox1.github.io/password-generator/ ******
+https://samuelfox1.github.io/password-generator/
 
 
 User instructions:
-    1.  Click the big red button.                    ![home screen](assets/screenshots/01-home-screen.png)
-    2.  Select Password length, 8-128 characters.    ![select options](assets/screenshots/02-follow-prompts.png)
-    3.  Follow the on-screen prompts.                ![generate password](assets/screenshots/03-generate-new-password.png)
+    1.  Click the big red button.                    [home screen](assets/screenshots/01-home-screen.png)
+    2.  Select Password length, 8-128 characters.    [select options](assets/screenshots/02-follow-prompts.png)
+    3.  Follow the on-screen prompts.                [generate password](assets/screenshots/03-generate-new-password.png)
     4.  Choose any combination of lowercase letters, Uppercase letters, numbers, and special characters.
     5.  See your new password instantly!
 
