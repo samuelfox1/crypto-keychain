@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-body">
-          
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+      <div class="card-body">
+        <form action="" id="config">
+          <div>
+            <div>
+              <label for="number">numbers:</label>
+              <input type="checkbox" name="number" id="" checked>
+            </div>
+            <div>
+              <label for="upperCaseLetter">upperCaseLetters:</label>
+              <input type="checkbox" name="upperCaseLetter" id="" checked>
+            </div>
+            <div>
+              <label for="lowerCaseLetter">lowerCaseLetters:</label>
+              <input type="checkbox" name="lowerCaseLetter" id="" checked>
+            </div>
+            <div>
+              <label for="specialCharacter">specialCharacters:</label>
+              <input type="checkbox" name="specialCharacter" id="" checked>
+            </div>
+          </div>
+          <label for="length">length: 8</label>
+          <input type="range" name="length" id="" value="8" min='8' max='128'>
+        </form>
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+        <h1 id="alert"></h1>
       </div>
-      <h5 class="author">Samuel Fox, December 2020</h5>
+      <div class="card-footer">
+        <button id="generate" class="btn">Generate Password</button>
+      </div>
     </div>
-    <footer>
-    </footer>
-    <script src="./assets/script.js"></script>
-  </body>
+  </div>
+  <footer>
+    <h5 class="author">Samuel Fox, December 2020</h5>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./assets/script.js"></script>
+</body>
+
 </html>
