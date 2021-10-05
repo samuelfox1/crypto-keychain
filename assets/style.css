@@ -38,6 +38,11 @@ form div {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+input[type="range"]{
+  /* -webkit-appearance: none; */
+  /* background-color: aqua; */
+  width:50%;
+}
 .card {
   text-align: center;
   background-color: hsl(173, 7%, 26%);
