@@ -16,7 +16,7 @@ const collectInputValues = () => {
     for (const [_, val] of Object.entries(inputOptions[0])) {
         const { name, value, checked } = val
         if (!name) continue
-        checked && name !== 'length' ? config.values.push(name) : config.length = value
+        checked && name !== 'length' ? config.values.push({ name, included: false }) : config.length = value
     }
 
     return config
@@ -24,25 +24,29 @@ const collectInputValues = () => {
 
 const generatePasswordString = ({ values, length }) => {
     let str = ''
+    const randomNum = (len) => Math.floor(Math.random() * len);
 
-    const randomNum = (len) => Math.floor(Math.random() * len)
     for (let i = 0; i < length; i++) {
         const randomOption = values[randomNum(values.length)]
-        str += options[randomOption][randomNum(options[randomOption].length)]
+        str += options[randomOption.name][randomNum(options[randomOption.name].length)]
+        randomOption.included = true
     }
-
-    const validateString = (str) => {
-        // regex to verify the password containes atleast one of each selected option
-
-        // if not, run again
-        generatePasswordString({ values, length })
+    const validateString = () => {
+        for (let [_, { included }] of Object.entries(values)) {
+            if (included) continue
+            else {
+                const reset = [...values].map((obj) => { return { ...obj, included: false } })
+                generatePasswordString({ values: reset, length })
+            }
+        }
     }
-
+    validateString()
     return str
 }
 
 const generatePassword = () => {
     const configObj = collectInputValues()
+    // console.log(configObj)
     const pw = generatePasswordString(configObj)
     $('#password').text(pw)
     navigator.clipboard.writeText(pw).then(() => {
