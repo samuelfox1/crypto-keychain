@@ -45,12 +45,16 @@ const focusAndCopyToCb = (el) => {
     const textVal = el.text().trim()
     if (!textVal) return
     el.select() && el.focus();
-    navigator.clipboard.writeText(textVal)
+    copyToCb(textVal)
+};
+
+const copyToCb = (text) => {
+    navigator.clipboard.writeText(text)
         .then(() => {
             $('#alert').text('coppied to clipboard');
             setTimeout(() => $('#alert').text(''), 3000);
         });
-};
+}
 
 inputOptions.on(`input`, handleInput);
 generateBtn.click(generatePassword);
