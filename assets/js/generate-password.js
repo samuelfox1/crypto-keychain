@@ -1,6 +1,6 @@
 const passwordText = $(`#password`);
 const generateBtn = $(`#generate`);
-const inputOptions = $(`form`);
+const inputOptions = $(`#config-form`);
 const options = {
     lowerCaseLetter: 'abcdefghijklmnopqrstuvwxyz',
     upperCaseLetter: `ABCDEFGHIJKLMNOPQRSTUVWXYZ`,
@@ -8,7 +8,7 @@ const options = {
     specialCharacter: '!#$%&*+-/;<=>?@\^_`|~'
 };
 
-passwordText.attr('placeholder', '\ngenerate a password\n---\nsave it to your private keychain');
+passwordText.attr('placeholder', '\n1. select characters to include\n2. select password length\n3. click generate');
 
 const updateRangeLabel = (num) => $('label[for=length]').text(`length: ${num}`);
 const handleInput = ({ target }) => target.type === 'range' && updateRangeLabel(target.value);
