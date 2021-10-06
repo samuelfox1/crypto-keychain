@@ -8,7 +8,7 @@ const options = {
     specialCharacter: '!#$%&*+-/;<=>?@\^_`|~'
 };
 
-passwordText.attr('placeholder', '\ngenerate a password\n---\nsave it in a private keychain');
+passwordText.attr('placeholder', '\ngenerate a password\n---\nsave it to your private keychain');
 
 const updateRangeLabel = (num) => $('label[for=length]').text(`length: ${num}`);
 const handleInput = ({ target }) => target.type === 'range' && updateRangeLabel(target.value);
@@ -54,4 +54,3 @@ const focusAndCopyToCb = (el) => {
 
 inputOptions.on(`input`, handleInput);
 generateBtn.click(generatePassword);
-// passwordText.click(() => focusAndCopyToCb(passwordText));
