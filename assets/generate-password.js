@@ -40,16 +40,19 @@ const generatePasswordString = ({ values, length }) => {
 const generatePassword = (e) => {
     const pw = generatePasswordString(collectInputValues())
     passwordText.text(pw)
-
     // navigator.clipboard.writeText(pw).then(() => $('#alert').text('coppied to clipboard!'));
     $('#save-pw').removeAttr('hidden')
-
 }
 
 const focusAndHighlight = (el) => {
-    console.log(el)
     el.select();
     el.focus();
+    navigator.clipboard.writeText(el.text()).then(() => {
+        const alertEl = $('#alert')
+        alertEl.text('coppied to clipboard')
+        setTimeout(() => alertEl.text(''), 3000)
+    });
+
 }
 
 inputOptions.on(`input`, handleInput)
