@@ -38,8 +38,7 @@ header {
   justify-content: space-between;
   color: hsl(206, 13%, 48%);
   width: 800px;
-  padding: 15px 25px;
-
+  padding: 15px 0;
 
 }
 header h1 {
@@ -56,10 +55,10 @@ header div i {
   padding-top: .1em;
   padding-left: .5em;;
 }
-.new-chain {
+.util {
   color: var(--btc-light)
 }
-.new-chain:hover {
+.util:hover {
   color: var(--btc);
 }
 header form {
