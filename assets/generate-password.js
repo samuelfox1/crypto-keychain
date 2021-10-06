@@ -5,7 +5,7 @@ const options = {
     lowerCaseLetter: 'abcdefghijklmnopqrstuvwxyz',
     upperCaseLetter: `ABCDEFGHIJKLMNOPQRSTUVWXYZ`,
     number: '0123456789',
-    specialCharacter: '!"#$%&*+-/;<=>?@\^_`|~ '
+    specialCharacter: '!#$%&*+-/;<=>?@\^_`|~ '
 };
 
 const updateRangeLabel = (num) => $('label[for=length]').text(`length: ${num}`);
@@ -40,10 +40,18 @@ const generatePasswordString = ({ values, length }) => {
 const generatePassword = (e) => {
     const pw = generatePasswordString(collectInputValues())
     passwordText.text(pw)
-    passwordText.select();
-    passwordText.focus();
-    navigator.clipboard.writeText(pw).then(() => $('#alert').text('coppied to clipboard!'));
+
+    // navigator.clipboard.writeText(pw).then(() => $('#alert').text('coppied to clipboard!'));
+    $('#save-pw').removeAttr('hidden')
+
+}
+
+const focusAndHighlight = (el) => {
+    console.log(el)
+    el.select();
+    el.focus();
 }
 
 inputOptions.on(`input`, handleInput)
+passwordText.click(() => focusAndHighlight(passwordText))
 generateBtn.click(generatePassword)
