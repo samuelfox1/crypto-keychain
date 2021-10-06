@@ -37,14 +37,30 @@ header {
   align-items: flex-end;
   justify-content: space-between;
   color: hsl(206, 13%, 48%);
-}
-.header-item-border {
-  border: dashed var(--btc-light) 1px;
-  border-radius: var(--borderRadius);
+  width: 800px;
+  padding: 15px 25px;
+
+
 }
 header h1 {
+  border: dashed var(--btc-light) 1px;
+  border-radius: var(--borderRadius);
   display: inline;
   padding: .5em;
+}
+header div {
+  display: flex;
+  /* align-items: center; */
+}
+header div i {
+  padding-top: .1em;
+  padding-left: .5em;;
+}
+.new-chain {
+  color: var(--btc-light)
+}
+.new-chain:hover {
+  color: var(--btc);
 }
 header form {
   padding-bottom: .7em;
