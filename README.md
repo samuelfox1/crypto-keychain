@@ -1,5 +1,5 @@
 
-# password-generator
+# crypto 🔑⛓
 
 >## Description 
 
