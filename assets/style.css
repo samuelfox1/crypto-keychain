@@ -122,7 +122,7 @@ input[type="range"]{
 .pw{
   font-size: 1.5em;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: flex-end;
 }
 .pw i {
@@ -131,11 +131,10 @@ input[type="range"]{
 .pw-text {
   width: 100%;
   text-align: end;
-  vertical-align: center;
   resize: none;
   background-color: rgba(0, 0, 0, 0);
   border: none;
-
+  overflow-x: scroll;
 }
 i:hover{
   transform: scale(1.2);
