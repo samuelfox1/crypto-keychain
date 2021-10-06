@@ -15,15 +15,15 @@ dashboardDefault.append(`
 <h2>3. save the password to your chain</h2>
 <h2>4. view saved paswords</h2>
 `)
-const promptForPw = () => prompt('enter keychain access password');
-const selectedChainName = () => selectedChain.val()
-const selectedChainLSKey = () => `${keyBase}-${selectedChainName()}`
+const getUserPw = () => prompt('enter keychain access password');
+const getSelectedChainName = () => selectedChain.val()
+const selectedChainLSKey = () => `${keyBase}-${getSelectedChainName()}`
 const setLocalStore = (arr, pw) => {
-    if (!selectedChainName()) return
+    if (!getSelectedChainName()) return
     localStorage.setItem(selectedChainLSKey(), CryptoJS.AES.encrypt(JSON.stringify(arr), pw).toString())
 };
 const getLocalStore = (pw) => {
-    if (!selectedChainName()) return console.log('no chain name selected');
+    if (!getSelectedChainName()) return console.log('no chain name selected');
 
     const existingData = localStorage.getItem(selectedChainLSKey());
     if (pw === null || !existingData) return console.log('pw is null or existing data undefined');
@@ -40,7 +40,7 @@ const addPwToKeychain = (e) => {
     e.preventDefault();
     const pwName = $('input[name=save]');
     if (!pwName.val()) return alert('must enter a name');
-    const pw = promptForPw();
+    const pw = getUserPw();
     const arr = getLocalStore(pw) || [];
     arr.unshift({ name: pwName.val(), value: passwordText.val() });
     setLocalStore(arr, pw);
@@ -71,7 +71,7 @@ const setViewKeychainBtnDefaults = () => {
 const handleViewKeychain = () => {
     if (!viewKeychainBtn.data('view')) return setViewKeychainBtnDefaults();
 
-    const pw = promptForPw();
+    const pw = getUserPw();
     const arr = getLocalStore(pw);
     if (!arr) return console.log('!arr');
     displayedKeys.toggleClass('hidden');
@@ -94,7 +94,7 @@ const togglePwView = (parentEl) => {
 const deletePw = (el) => {
     const { name, i } = el.data();
     if (!confirm(`delete password: ${name}?`)) return;
-    const pw = promptForPw();
+    const pw = getUserPw();
     const arr = getLocalStore(pw);
     const filtered = arr.filter((_, idx) => idx !== parseInt(i));
     setLocalStore(filtered, pw);
@@ -128,7 +128,7 @@ const addNewChain = () => {
     loadExistingChains()
     setTimeout(() => {
         selectedChain.val(newChainName)
-        setLocalStore([], promptForPw())
+        setLocalStore([], getUserPw())
         if (dashboardIsHidden()) toggleDisplayDashboard();
     }, 400);
 };
@@ -153,6 +153,19 @@ const handleSelectedChainName = () => {
     if (!selectedChain.val() && !dashboardIsHidden()) toggleDisplayDashboard()
 }
 
+const handleRestoreChain = () => {
+    const kc = getSelectedChainName()
+    if (!kc) return alert('no chain selected')
+    console.log('restore')
+}
+const handleBackupChain = () => {
+    const kc = getSelectedChainName()
+    if (!kc) return alert('no chain selected')
+    // confirm(`backup keychain: ${kc}`)
+    const hash = localStorage.getItem(`${keyBase}-${kc}`)
+    copyToCb(hash)
+}
+
 /* ------event handlers------*/
 savePwForm.on('submit', addPwToKeychain);
 viewKeychainBtn.click(handleViewKeychain);
@@ -168,3 +181,5 @@ displayedKeys.on('click', 'textarea', function () {
 });
 selectedChain.on('input', handleSelectedChainName)
 $('body').on('click', '.new-chain', addNewChain);
+$('.fa-upload').click(handleRestoreChain)
+$('.fa-download').click(handleBackupChain)
