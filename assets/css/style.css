@@ -112,6 +112,11 @@ input[type="range"]{
   background-color: rgba(4, 165, 44, 0.212);
   padding: .5em 1em;
 }
+#save-to-keychain:hover{
+  background-color: rgba(4, 165, 44, 0.801);
+  transform: scale(1.1);
+}
+
 .btn:hover{
   background-color: rgba(242, 169, 39, 0.801);
   transform: scale(1.05);
@@ -136,17 +141,13 @@ input[type="range"]{
   border: none;
   overflow-x: scroll;
 }
-i:hover{
-  transform: scale(1.2);
-}
+
 .pw p{
-  /* max-width: 85%; */
   text-align: center;
 }
 .float-right {
   float: right;
 }
-
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
