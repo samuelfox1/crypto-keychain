@@ -90,7 +90,7 @@ displayedKeys.on('click', 'textarea', function () {
     const parentEl = $(this).parent()
     const displayedPw = parentEl.find('.fa-eye-slash').length
     if (displayedPw) {
-        focusAndHighlight($(this))
+        focusAndCopyToCb($(this))
         togglePwView(parentEl)
     }
 })

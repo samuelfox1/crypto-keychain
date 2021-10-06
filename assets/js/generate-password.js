@@ -41,9 +41,11 @@ const generatePassword = (e) => {
     $('#save-pw').removeAttr('hidden');
 };
 
-const focusAndHighlight = (el) => {
+const focusAndCopyToCb = (el) => {
+    const textVal = el.text().trim()
+    if (!textVal) return
     el.select() && el.focus();
-    navigator.clipboard.writeText(el.text().trim())
+    navigator.clipboard.writeText(textVal)
         .then(() => {
             $('#alert').text('coppied to clipboard');
             setTimeout(() => $('#alert').text(''), 3000);
@@ -52,4 +54,4 @@ const focusAndHighlight = (el) => {
 
 inputOptions.on(`input`, handleInput);
 generateBtn.click(generatePassword);
-passwordText.click(() => focusAndHighlight(passwordText));
+// passwordText.click(() => focusAndCopyToCb(passwordText));
