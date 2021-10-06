@@ -95,7 +95,7 @@ input[type="range"]{
 
 .btn {
   border: none;
-  background-color: rgba(165, 39, 39, 0.493);
+  background-color: rgba(242, 169, 39, 0.493);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -113,7 +113,7 @@ input[type="range"]{
   padding: .5em 1em;
 }
 .btn:hover{
-  background-color: rgba(165, 39, 39, 0.801);
+  background-color: rgba(242, 169, 39, 0.801);
   transform: scale(1.05);
 }
 .hidden {

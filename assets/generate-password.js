@@ -8,6 +8,8 @@ const options = {
     specialCharacter: '!#$%&*+-/;<=>?@\^_`|~ '
 };
 
+passwordText.attr('placeholder', '\ngenerate a password\n---\nsave it in a private keychain')
+
 const updateRangeLabel = (num) => $('label[for=length]').text(`length: ${num}`);
 const handleInput = ({ target }) => target.type === 'range' && updateRangeLabel(target.value);
 
