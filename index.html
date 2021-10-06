@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <title>Password Generator</title>
   <link rel="stylesheet" href="./assets/style.css" />
 </head>
@@ -39,11 +41,19 @@
           <input type="range" name="length" id="" value="32" min='8' max='128'>
         </form>
         <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+        <form id="save-pw" hidden>
+          <label for="save">save to keychain</label>
+          <input type="text" name="save">
+          <button class="btn" type="submit" value="add to keychain" id="save-to-keychain"><i
+              class="fas fa-save"></i></button>
+        </form>
         <h1 id="alert"></h1>
       </div>
       <div class="card-footer">
         <button id="generate" class="btn">Generate Password</button>
       </div>
+      <button id="my-keychain" class="btn" data-view=1>view keychain</button>
+      <div id="keychain"></div>
     </div>
   </div>
   <footer>
@@ -51,7 +61,11 @@
   </footer>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="./assets/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+    integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./assets/generate-password.js"></script>
+  <script src="./assets/keychain.js"></script>
 </body>
 
 </html>
