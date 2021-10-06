@@ -1,9 +1,9 @@
-const keychainBtn = $('#my-keychain')
+const viewKeychainBtn = $('#my-keychain')
 const savePwForm = $('#save-pw')
 const displayedKeys = $('#keychain')
 const lsKey = 'cryptoPw'
 
-const getLS = (pw) => {
+const getLocalStore = (pw) => {
     const existingData = localStorage.getItem(lsKey)
     if (!existingData) return ''
     // Decrypt
@@ -16,7 +16,7 @@ const getLS = (pw) => {
         alert('unauthorized')
     }
 }
-const setLs = (arr, pw) => {
+const setLocalStore = (arr, pw) => {
     // Encrypt
     localStorage.setItem(lsKey, CryptoJS.AES.encrypt(JSON.stringify(arr), pw).toString())
 }
@@ -27,13 +27,13 @@ const addPwToKeychain = (e) => {
     const pwName = $('input[name=save]')
     if (!pwName.val()) return alert('must enter a name')
     const pw = promptForPw()
-    const arr = getLS(pw) || []
+    const arr = getLocalStore(pw) || []
     arr.unshift({ name: pwName.val(), value: passwordText.val() })
-    setLs(arr, pw)
+    setLocalStore(arr, pw)
     pwName.val('')
     passwordText.text('')
     $('#save-pw').attr('hidden', '_')
-    if (!parseInt(keychainBtn.data('view'))) displayKeychain(arr)
+    if (!parseInt(viewKeychainBtn.data('view'))) displayKeychain(arr)
 }
 
 const displayKeychain = (arr) => {
@@ -48,16 +48,16 @@ const displayKeychain = (arr) => {
 }
 
 const setViewKeychainBtnDefaults = () => {
-    keychainBtn.text('view keychain')
-    keychainBtn.data('view', 1)
+    viewKeychainBtn.text('view keychain')
+    viewKeychainBtn.data('view', 1)
     displayedKeys.empty()
 }
 
 const handleViewKeychain = () => {
-    if (!keychainBtn.data('view')) return setViewKeychainBtnDefaults()
+    if (!viewKeychainBtn.data('view')) return setViewKeychainBtnDefaults()
 
     const pw = promptForPw()
-    const arr = getLS(pw)
+    const arr = getLocalStore(pw)
     if (!arr) return
     if (!arr.length) {
         displayedKeys.append('<h2>keychain is empty</h2>')
@@ -65,13 +65,12 @@ const handleViewKeychain = () => {
         return
     }
 
-    keychainBtn.text('hide keychain')
+    viewKeychainBtn.text('hide keychain')
     displayKeychain(arr)
-    keychainBtn.data('view', 0)
+    viewKeychainBtn.data('view', 0)
 }
 
 const togglePwView = (el) => {
-    console.log(el)
     const { name, pw } = el.data()
     const icon = el.find('i.far')
     const p = el.find('textarea')
@@ -84,17 +83,19 @@ const togglePwView = (el) => {
 }
 
 const deletePw = (el) => {
-    const { i, name } = el.data()
+    const { name, i } = el.data()
     if (!confirm(`delete password for ${name}?`)) return
     const pw = promptForPw()
-    const arr = getLS(pw)
+    const arr = getLocalStore(pw)
     const filtered = arr.filter((_, idx) => idx !== parseInt(i))
-    setLs(filtered, pw)
+    setLocalStore(filtered, pw)
     !filtered.length ? setViewKeychainBtnDefaults() : displayKeychain(filtered)
 }
 
+
+/* ------event handlers------*/
 savePwForm.on('submit', addPwToKeychain)
-keychainBtn.click(handleViewKeychain)
+viewKeychainBtn.click(handleViewKeychain)
 displayedKeys.on('click', 'i.far', function () { togglePwView($(this).parent()) })
 displayedKeys.on('click', 'i.fas', function () { deletePw($(this).parent()) })
 displayedKeys.on('click', 'textarea', function () {
