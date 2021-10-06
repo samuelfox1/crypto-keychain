@@ -33,14 +33,25 @@ body {
 }
 
 header {
-  margin:1em 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   color: hsl(206, 13%, 48%);
+}
+.header-item-border {
+  border: dashed var(--btc-light) 1px;
+  border-radius: var(--borderRadius);
 }
 header h1 {
   display: inline;
   padding: .5em;
-  border: dashed var(--btc-light) 1px;
-  border-radius: var(--borderRadius);
+}
+header form {
+  padding-bottom: .7em;
+  display: flex;
+  align-items: flex-end;
+  color: inherit;
+  font-family: inherit;
 }
 form {
   color: black;
