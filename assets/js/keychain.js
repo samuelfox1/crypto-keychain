@@ -1,6 +1,6 @@
 const viewKeychainBtn = $('#my-keychain')
 const savePwForm = $('#save-pw')
-const displayedKeys = $('#keychain')
+const displayedKeys = $('#keychain-container')
 const lsKey = 'cryptoPw'
 
 const promptForPw = () => prompt('enter keychain access password')
@@ -33,6 +33,7 @@ const addPwToKeychain = (e) => {
 
 const displayKeychain = (arr) => {
     displayedKeys.empty()
+    displayedKeys.toggleClass('hidden')
     arr.map(({ name, value }, i) => displayedKeys.append(`
     <div class="pw" data-name=${name} data-pw="${value}" data-i="${i}">
     <textarea readonly class="pw-text">${name}</textarea>
@@ -45,6 +46,7 @@ const displayKeychain = (arr) => {
 const setViewKeychainBtnDefaults = () => {
     viewKeychainBtn.text('view keychain')
     viewKeychainBtn.data('view', 1)
+    displayedKeys.toggleClass('hidden')
     displayedKeys.empty()
 }
 
