@@ -7,7 +7,7 @@ const promptForPw = () => prompt('enter keychain access password')
 const setLocalStore = (arr, pw) => localStorage.setItem(lsKey, CryptoJS.AES.encrypt(JSON.stringify(arr), pw).toString())
 const getLocalStore = (pw) => {
     const existingData = localStorage.getItem(lsKey)
-    if (!existingData) return ''
+    if (pw === null || !existingData) return
     try {
 
         const bytes = CryptoJS.AES.decrypt(existingData, pw);
@@ -72,7 +72,7 @@ const togglePwView = (parentEl) => {
 
 const deletePw = (el) => {
     const { name, i } = el.data()
-    if (!confirm(`delete password for ${name}?`)) return
+    if (!confirm(`delete password: ${name}?`)) return
     const pw = promptForPw()
     const arr = getLocalStore(pw)
     const filtered = arr.filter((_, idx) => idx !== parseInt(i))
