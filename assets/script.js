@@ -1,59 +1,48 @@
 const passwordText = $(`#password`);
 const generateBtn = $(`#generate`);
-const inputOptions = $(`form`)
+const inputOptions = $(`form`);
 const options = {
     lowerCaseLetter: 'abcdefghijklmnopqrstuvwxyz',
     upperCaseLetter: `ABCDEFGHIJKLMNOPQRSTUVWXYZ`,
     number: '0123456789',
-    specialCharacter: '!"#$%&*+-/;<=>?@\^_`|~'
-}
+    specialCharacter: '!"#$%&*+-/;<=>?@\^_`|~ '
+};
 
-const updateRangeLabel = (num) => $('label[for=length]').text(`length: ${num}`)
-const handleInput = ({ target }) => target.type === 'range' && updateRangeLabel(target.value)
+const updateRangeLabel = (num) => $('label[for=length]').text(`length: ${num}`);
+const handleInput = ({ target }) => target.type === 'range' && updateRangeLabel(target.value);
 
 const collectInputValues = () => {
-    const config = { values: [], length: null }
+    const config = { values: [], length: null };
     for (const [_, val] of Object.entries(inputOptions[0])) {
-        const { name, value, checked } = val
-        if (!name) continue
-        checked && name !== 'length' ? config.values.push({ name, included: false }) : config.length = value
-    }
+        const { name, value, checked } = val;
+        if (!name) continue;
+        checked && name !== 'length' ? config.values.push(name) : config.length = value;
+    };
 
-    return config
+    return config;
 }
 
 const generatePasswordString = ({ values, length }) => {
-    let str = ''
+    let str = '';
+    let includedTypes = [];
     const randomNum = (len) => Math.floor(Math.random() * len);
 
     for (let i = 0; i < length; i++) {
-        const randomOption = values[randomNum(values.length)]
-        str += options[randomOption.name][randomNum(options[randomOption.name].length)]
-        randomOption.included = true
-    }
-    const validateString = () => {
-        for (let [_, { included }] of Object.entries(values)) {
-            if (included) continue
-            else {
-                const reset = [...values].map((obj) => { return { ...obj, included: false } })
-                generatePasswordString({ values: reset, length })
-            }
-        }
-    }
-    validateString()
-    return str
+        const randomKey = values[randomNum(values.length)];
+        str += options[randomKey][randomNum(options[randomKey].length)];
+        if (includedTypes.indexOf(randomKey) === -1) includedTypes.push(randomKey);
+    };
+
+    if (includedTypes.length === values.length) return str;
+    return generatePasswordString({ values, length });
 }
 
-const generatePassword = () => {
-    const configObj = collectInputValues()
-    // console.log(configObj)
-    const pw = generatePasswordString(configObj)
-    $('#password').text(pw)
-    navigator.clipboard.writeText(pw).then(() => {
-        $('#alert').text('coppied to clipboard!')
-    }, () => {
-        /* clipboard write failed */
-    });
+const generatePassword = (e) => {
+    const pw = generatePasswordString(collectInputValues())
+    passwordText.text(pw)
+    passwordText.select();
+    passwordText.focus();
+    navigator.clipboard.writeText(pw).then(() => $('#alert').text('coppied to clipboard!'));
 }
 
 inputOptions.on(`input`, handleInput)
