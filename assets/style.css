@@ -95,7 +95,7 @@ input[type="range"]{
 
 .btn {
   border: none;
-  background-color: rgb(165, 39, 39);
+  background-color: rgba(165, 39, 39, 0.493);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -108,12 +108,42 @@ input[type="range"]{
   text-align: center;
   cursor: pointer;
 }
-
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
+#save-to-keychain {
+  background-color: rgba(4, 165, 44, 0.212);
+  padding: .5em 1em;
 }
+.btn:hover{
+  background-color: rgba(165, 39, 39, 0.801);
+  transform: scale(1.05);
+}
+.hidden {
+  display: none;
+}
+.pw{
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.pw i {
+  margin: 0 1em;
+}
+.pw-text {
+  width: 100%;
+  text-align: end;
+  vertical-align: center;
+  resize: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 
+}
+i:hover{
+  transform: scale(1.2);
+}
+.pw p{
+  /* max-width: 85%; */
+  text-align: center;
+}
 .float-right {
   float: right;
 }
