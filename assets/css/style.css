@@ -27,6 +27,7 @@ body {
 }
 
 .wrapper {
+  width:70vw;
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
@@ -37,7 +38,6 @@ header {
   align-items: flex-end;
   justify-content: space-between;
   color: hsl(206, 13%, 48%);
-  width: 800px;
   padding: 15px 0;
 
 }
@@ -189,8 +189,19 @@ input[type="range"]{
   resize: none;
   overflow: hidden;
 }
+.card-footer {
+  border-bottom: solid rgba(0, 0, 0, 0.192) 1px;
+}
 
 @media (max-width: 690px) {
+  .wrapper {
+    width:100vw;
+    padding-top: 0;
+  }
+  .header {
+    padding-top: 0;
+  }
+
   .btn {
     font-size: 1rem;
     margin: 10px 0px 0px 0px;
@@ -205,5 +216,12 @@ input[type="range"]{
 @media (max-width: 500px) {
   .btn {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 540px) {
+  header {
+    flex-direction: column;
+    align-items: center;
   }
 }
