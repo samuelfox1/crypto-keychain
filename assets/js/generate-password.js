@@ -1,5 +1,6 @@
 const passwordText = $(`#password`);
-const generateBtn = $(`#generate`);
+const generateBtn = $(`#generate-new`);
+const saveExistingBtn = $('#save-existing')
 const inputOptions = $(`#config-form`);
 const options = {
     lowerCaseLetter: 'abcdefghijklmnopqrstuvwxyz',
@@ -36,11 +37,6 @@ const generatePasswordString = ({ values, length }) => {
     return generatePasswordString({ values, length });
 }
 
-const generatePassword = (e) => {
-    passwordText.text(generatePasswordString(collectInputValues()));
-    $('#save-pw').removeAttr('hidden');
-};
-
 const focusAndCopyToCb = (el) => {
     const textVal = el.text().trim()
     if (!textVal) return
@@ -56,5 +52,23 @@ const copyToCb = (text) => {
         });
 }
 
+const displaySaveToKeychain = () => {
+    $('#save-pw').removeAttr('hidden');
+}
+
+const generatePassword = () => {
+    console.log('clicked')
+    passwordText.val(generatePasswordString(collectInputValues()));
+    displaySaveToKeychain()
+};
+
+const handleSaveExisiting = () => {
+    displaySaveToKeychain()
+    passwordText.val('')
+    passwordText.attr('placeholder', '\n\npaste here');
+
+}
+
 inputOptions.on(`input`, handleInput);
 generateBtn.click(generatePassword);
+saveExistingBtn.click(handleSaveExisiting);
