@@ -45,7 +45,7 @@ const addPwToKeychain = (e) => {
     arr.unshift({ name: pwName.val(), value: passwordText.val() });
     setLocalStore(arr, pw);
     pwName.val('');
-    passwordText.text('');
+    passwordText.val('');
     $('#save-pw').attr('hidden', '_');
     if (!parseInt(viewKeychainBtn.data('view'))) displayKeychain(arr);
 };
