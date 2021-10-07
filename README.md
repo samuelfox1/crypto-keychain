@@ -35,7 +35,7 @@
 
 >## Product
 
-* [Check it out!](https://samuelfox1.github.io/password-generator/) 
+* [Check it out!](https://samuelfox1.github.io/crypto-keychain) 
 
 ![Screenshot](./assets/images/screenshot01.png)
 ![Screenshot](./assets/images/screenshot02.png)
