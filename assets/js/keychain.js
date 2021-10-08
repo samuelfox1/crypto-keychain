@@ -6,15 +6,15 @@ const savePwForm = $('#save-pw');
 const displayedKeys = $('#keychain-container');
 const selectedChain = $('#selected-chain');
 const chainOption = $('option');
-const keyBase = 'cryptoKC';
+// const keyBase = 'cryptoKC';
 
-dashboardDefault.append(`
-<h1>--select-- or <i class="new-chain far fa-plus-square"></i> to get started</h1>
-<h2>1. choose a keychain</h2>
-<h2>2. generate a password</h2>
-<h2>3. save the password to your chain</h2>
-<h2>4. view saved paswords</h2>
-`)
+// dashboardDefault.append(`
+// <h1>--select-- or <i class="new-chain far fa-plus-square"></i> to get started</h1>
+// <h2>1. choose a keychain</h2>
+// <h2>2. generate a password</h2>
+// <h2>3. save the password to your chain</h2>
+// <h2>4. view saved paswords</h2>
+// `)
 const getUserPw = () => prompt('enter keychain access password');
 const getSelectedChainName = () => selectedChain.val()
 const selectedChainLSKey = () => `${keyBase}-${getSelectedChainName()}`
@@ -101,15 +101,15 @@ const deletePw = (el) => {
     !filtered.length ? setViewKeychainBtnDefaults() : displayKeychain(filtered);
 };
 
-const loopThroughChains = (cb) => {
-    for (const [key] of Object.entries(localStorage)) {
-        const k = key.split('-');
-        if (k[0] === keyBase) {
-            k.shift();
-            cb(k, key,);
-        };
-    };
-};
+// const loopThroughChains = (cb) => {
+//     for (const [key] of Object.entries(localStorage)) {
+//         const k = key.split('-');
+//         if (k[0] === keyBase) {
+//             k.shift();
+//             cb(k, key,);
+//         };
+//     };
+// };
 
 const toggleDisplayDashboard = () => dashboard.toggleClass('hidden') && dashboardDefault.toggleClass('hidden');
 const dashboardIsHidden = () => dashboard.hasClass('hidden')
@@ -135,17 +135,17 @@ const addNewChain = () => {
 const updateKeychainName = () => { };
 const deleteKeychain = () => { };
 
-const loadExistingChains = () => {
-    selectedChain.empty();
-    selectedChain.append(`
-    <option value="">--select--</option>
-    `);
-    loopThroughChains((k, key) => {
-        const chainName = k.join('')
-        selectedChain.append(`<option value="${chainName}">${chainName}</option>`);
-    });
-};
-loadExistingChains();
+// const loadExistingChains = () => {
+//     selectedChain.empty();
+//     selectedChain.append(`
+//     <option value="">--select--</option>
+//     `);
+//     loopThroughChains((k, key) => {
+//         const chainName = k.join('')
+//         selectedChain.append(`<option value="${chainName}">${chainName}</option>`);
+//     });
+// };
+// loadExistingChains();
 
 const handleSelectedChainName = () => {
     setViewKeychainBtnDefaults()
