@@ -9,14 +9,40 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <title>crypto keychain</title>
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<body>
-  <div class="wrapper">
+<body class="container-fluid">
+  <nav class="row">
+    <h1 id="title" class="col-xs-12 col-sm-5 my-2 fs-6">crypto <span class="fs-1">
+        <span class="text-decoration-underline">key</span>chain</span>
+    </h1>
+
+    <div class="nav nav-tabs col-xs-12 col-sm-7 d-flex justify-content-end" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+        role="tab" aria-controls="nav-home" aria-selected="true">home</button>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active text-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <p>≈≈ Welcome ≈≈</p>
+        <p>--select-- or <i class="new-chain far fa-plus-square"></i> to get started</p>
+        <p>1. choose a keychain</p>
+        <p>2. generate a password</p>
+        <p>3. save the password to your chain</p>
+        <p>4. view saved paswords</p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="wrapper">
     <header>
       <h1>crypto 🔑⛓</h1>
       <div>
@@ -69,17 +95,19 @@
       </div>
     </div>
   </div>
-  </div>
-  <footer>
-    <h5>Samuel Fox, December 2020</h5>
-  </footer>
+  </div>-->
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
     integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+    crossorigin="anonymous"></script>
+
   <script src="./assets//js/generate-password.js"></script>
+  <script src="./assets/js/initNavTabs.js"></script>
   <script src="./assets//js/keychain.js"></script>
 </body>
 
