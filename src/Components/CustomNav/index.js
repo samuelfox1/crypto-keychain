@@ -1,6 +1,7 @@
 import React from 'react'
 import NavTabs from '../NavTabs'
 
+
 export default function CustomNav() {
     return (
         <nav className="w-100 d-flex justify-content-between align-items-end mb-5">

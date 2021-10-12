@@ -1,3 +1,8 @@
+:root {
+  --orange: rgb(242, 169, 0);
+  --border-rad: .5em;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,13 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.border {
+  border-radius: var(--border-rad);
+}
+
+.border-orange {
+  border-radius: var(--border-rad);
+  border: solid var(--orange) 1px 
 }
