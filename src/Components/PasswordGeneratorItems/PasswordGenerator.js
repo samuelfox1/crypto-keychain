@@ -115,7 +115,7 @@ export default function PasswordGenerator() {
         setTimeout(() => {
             clearInterval(interval)
             setDisplayedButton(btnOptions.activeBtn())
-        }, 3000)
+        }, 2000)
     }
 
     useEffect(() => {
