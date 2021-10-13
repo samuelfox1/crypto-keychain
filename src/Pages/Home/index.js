@@ -1,10 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import { PageContext } from '../../Context/PageContext'
 
 export default function Home() {
 
-    const { updatePage } = useContext(PageContext)
     console.log('rendering: Home')
     return (
         <Container className="my-5">
@@ -13,12 +11,13 @@ export default function Home() {
                     <h1>Welcome!</h1>
                     {/* <p>to your personal lock-box</p> */}
                     <br />
-                    <p>securely create and store</p>
+                    <p>customiz, create </p>
+                    <p>and securely store your</p>
                     <p>passwords and private text</p>
                 </div>
             </Row>
             <Row className="justify-content-center" >
-                <Col xs={8} md={4} className="border-orange mt-5">
+                <Col xs={10} md={4} className="border-orange">
                     <Button variant="outline-info text-dark" className="w-100 my-3">create new chain</Button>
                     <Button variant="outline-info text-dark" className="w-100 my-3">access existing chain</Button>
                     <Button variant="outline-info text-dark" className="w-100 my-3">load from backup</Button>
