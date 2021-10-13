@@ -6,12 +6,12 @@ export default function NavTabs() {
 
     const [key, setKey] = useState('landing');
     const [dynamicTabs, setDynamicTabs] = useState([])
-    const { updateComponent } = useContext(AppContext)
+    const { updateAppComponent } = useContext(AppContext)
     const keyBase = 'cryptoKC';
 
     const handleUpdateKey = (key) => {
         setKey(key)
-        updateComponent(key)
+        updateAppComponent(key)
     }
 
     const loopThroughChains = (cb) => {

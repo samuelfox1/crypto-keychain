@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import './App.css';
 
 function App() {
-  const { component } = useContext(AppContext)
+  const { AppComponent } = useContext(AppContext)
 
   console.log('rendering: App')
 
@@ -17,7 +17,7 @@ function App() {
       <Container className="pb-1">
 
         <LandingProvider>
-          {component}
+          {AppComponent}
         </LandingProvider>
 
       </Container>

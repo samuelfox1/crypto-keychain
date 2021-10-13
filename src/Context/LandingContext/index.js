@@ -1,21 +1,22 @@
 import React, { createContext, useState } from 'react'
-import CreateChain from '../../Components/Forms/CreateChain'
+import { CreateChain } from '../../Components/Forms'
 import { Buttons } from '../../Components/LandingPageItems'
 
 export const LandingContext = createContext()
 
 export default function LandingProvider({ children }) {
 
-    const [component, setComponent] = useState(<Buttons key='landing-buttons' />)
+    const [LandingComponent, setLandingComponent] = useState(<Buttons key='landing-buttons' />)
 
-    const updateComponent = (componentName) => {
+    const updateLandingComponent = (componentName) => {
         switch (componentName) {
             case 'buttons':
-                setComponent(<Buttons key={`landing-${componentName}`} />)
+                setLandingComponent(<Buttons key={`landing-${componentName}`} />)
                 break;
 
             case 'createChain':
-                setComponent(<CreateChain key={componentName} />)
+                console.log('here')
+                setLandingComponent(<CreateChain key={componentName} />)
                 break;
 
             default:
@@ -26,7 +27,7 @@ export default function LandingProvider({ children }) {
     console.log('rendering: LandingProvider')
 
     return (
-        <LandingContext.Provider value={{ component, updateComponent }}>
+        <LandingContext.Provider value={{ LandingComponent, updateLandingComponent }}>
             {children}
         </LandingContext.Provider>
     )
