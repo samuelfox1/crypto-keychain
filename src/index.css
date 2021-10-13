@@ -44,6 +44,14 @@ div#root {
   border: solid var(--orange) 1px 
 }
 
+.btn-outline-warning {
+  border-color: var(--orange) !important;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--orange);
+}
+
 .error {
   color: var(--error);
 }

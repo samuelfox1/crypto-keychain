@@ -87,7 +87,12 @@ export default function PasswordGenerator() {
             <Row className="justify-content-center">
                 <Col xs={11} md={4} >
                     <h2>Password Generator</h2>
-                    <p>select password options & click generate</p>
+                    <ol>
+                        <li><p>select characters</p></li>
+                        <li><p>select length</p></li>
+                        <li><p>click generate</p></li>
+                    </ol>
+
                 </Col>
             </Row>
             <Row className="justify-content-center" >
