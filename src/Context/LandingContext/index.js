@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+import CreateChain from '../../Components/Forms/CreateChain'
 import { Buttons } from '../../Components/LandingPageItems'
 
 export const LandingContext = createContext()
@@ -11,6 +12,10 @@ export default function LandingProvider({ children }) {
         switch (componentName) {
             case 'buttons':
                 setComponent(<Buttons key={`landing-${componentName}`} />)
+                break;
+
+            case 'createChain':
+                setComponent(<CreateChain key={componentName} />)
                 break;
 
             default:

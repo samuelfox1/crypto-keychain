@@ -7,24 +7,20 @@ export const AppContext = createContext()
 
 export default function AppProvider({ children }) {
 
-    const [content, setContent] = useState(<Landing key="landing" />)
+    const [component, setComponent] = useState(<Landing key="landing" />)
 
-    const updateContent = (pageName) => {
-        switch (pageName) {
+    const updateComponent = (componentName) => {
+        switch (componentName) {
             case 'landing':
-                setContent(<Landing key={pageName} />)
-                break;
-
-            case 'createChain':
-                setContent(<CreateChain key={pageName} />)
+                setComponent(<Landing key={componentName} />)
                 break;
 
             case 'passwordGenerator':
-                setContent(<PasswordGenerator key={pageName} />)
+                setComponent(<PasswordGenerator key={componentName} />)
                 break;
 
             default:
-                setContent(<Landing key={pageName} />)
+                setComponent(<Landing key={componentName} />)
                 break;
         }
     }
@@ -32,7 +28,7 @@ export default function AppProvider({ children }) {
     console.log('rendering: AppProvider')
 
     return (
-        <AppContext.Provider value={{ content, updateContent }}>
+        <AppContext.Provider value={{ component, updateComponent }}>
             {children}
         </AppContext.Provider>
     )

@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import { Button } from 'react-bootstrap'
-import { AppContext } from '../../Context'
+import { LandingContext } from '../../Context'
 
 export default function Buttons() {
-    const { updateContent } = useContext(AppContext)
+    const { updateComponent } = useContext(LandingContext)
     return (
         <>
             <Button
                 variant="outline-info text-dark"
                 className="w-100 my-3"
-                onClick={() => updateContent('createChain')}
+                onClick={() => updateComponent('createChain')}
             >
                 create new chain
             </Button>
