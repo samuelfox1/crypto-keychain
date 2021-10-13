@@ -1,5 +1,5 @@
-import AppProvider, { AppContext } from "./AppContext/index.js";
-import LandingProvider, { LandingContext } from "./LandingContext/index.js";
+import { AppProvider, AppContext } from "./App";
+import { LandingProvider, LandingContext } from "./Landing";
 
 
 export {

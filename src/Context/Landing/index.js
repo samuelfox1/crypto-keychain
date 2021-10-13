@@ -3,7 +3,7 @@ import { DefaultButtons, CreateChainForm } from '../../Components/LandingPageIte
 
 export const LandingContext = createContext()
 
-export default function LandingProvider({ children }) {
+export const LandingProvider = ({ children }) => {
 
     const [LandingComponent, setLandingComponent] = useState(<DefaultButtons key='landing-DefaultButtons' />)
 

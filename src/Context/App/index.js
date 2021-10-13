@@ -1,10 +1,10 @@
 import React, { useState, createContext } from 'react'
-import Landing from '../../Pages/Landing'
+import { Landing } from '../../Pages'
 import { PasswordGenerator } from '../../Components/PasswordGeneratorItems'
 
 export const AppContext = createContext()
 
-export default function AppProvider({ children }) {
+export const AppProvider = ({ children }) => {
 
     const defaultComponent = <Landing key="landing" />
     const [AppComponent, setAppComponent] = useState(defaultComponent)
