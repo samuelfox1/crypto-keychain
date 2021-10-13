@@ -64,11 +64,11 @@ export default function CreateChain() {
         <>
             <Row className="justify-content-center">
                 <Col xs={10} md={4} >
-                    <h2>Create new Chain</h2>
+                    <h1>Create new chain</h1>
                     <ol>
-                        <li><p>enter a name</p></li>
-                        <li><p className="mb-0">enter a password</p>
-                            <p className="mt-0"> <small>(to access your keychain)</small></p>
+                        <li><p >enter a name</p></li>
+                        <li><p >enter a password</p>
+                            {/* <p> <small>(to access your keychain)</small></p> */}
                         </li>
                         <li><p>confirm password</p></li>
                         <li><p>click create</p></li>
@@ -120,7 +120,7 @@ export default function CreateChain() {
                             <Button
                                 variant="outline-info text-dark"
                                 className="my-3"
-                                onClick={() => updateLandingComponent('buttons')}
+                                onClick={() => updateLandingComponent('defaultButtons')}
                             >
                                 reset
                             </Button>
