@@ -1,4 +1,3 @@
-
 # crypto-keychain
 
 ## Description 
@@ -7,7 +6,6 @@
 
 #### [check it out!](https://samuelfox1.github.io/crypto-keychain) 
 
-<br>
 
 ## Table of Contents
 
@@ -17,10 +15,9 @@
 * [Story](#Story)
 * [Testing](#Testing)
 * [Usage](#Usage)
+ 
+ <br>
 
-<br>
-
-![license](https://img.shields.io/badge/License-MIT-blue)
 
 ![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)
 ![VS Code](https://img.shields.io/badge/-VS%20Code-4D4D4D?logo=Visual%20Studio%20Code&logoColor=007ACC)
@@ -28,8 +25,8 @@
 ![css](https://img.shields.io/badge/-CSS3-red?logo=css3)
 ![javascript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
+![license](https://img.shields.io/badge/License-MIT-blue)
 
-<br>
 <br>
 
 ### Usage
@@ -44,9 +41,8 @@
 2. add and remove passwords to a keychain
 3. backup your keychain for safe keeping
 4. load a backup to access your stored passwords
-<br>
-<br>
 
+<br>
 
 ### Questions
 
@@ -71,9 +67,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <br>
 
 The images found in 'assets/images/logo/' are trademarks of their respective companies and are under their terms and license.
-<br>
 
-2020
-<br>
+2021
 
 ## [Top of page](#crypto-keychain)
