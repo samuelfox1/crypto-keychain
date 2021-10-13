@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap'
-import { AppContext } from '../../Context'
+import { Container, Row, Col } from 'react-bootstrap'
+import { LandingContext } from '../../Context'
 
 export default function Landing() {
 
-    const { updateContent } = useContext(AppContext)
+    const { component } = useContext(LandingContext)
+
     console.log('rendering: Landing')
+
     return (
         <Container className="my-5">
             <Row className="justify-content-center">
@@ -21,15 +23,7 @@ export default function Landing() {
             </Row>
             <Row className="justify-content-center mb-5" >
                 <Col xs={10} md={4} className="border-orange">
-                    <Button
-                        variant="outline-info text-dark"
-                        className="w-100 my-3"
-                        onClick={() => updateContent('createChain')}
-                    >
-                        create new chain
-                    </Button>
-                    <Button disabled variant="outline-info text-dark" className="w-100 my-3">access existing chain</Button>
-                    <Button disabled variant="outline-info text-dark" className="w-100 my-3">load from backup</Button>
+                    {component}
                 </Col>
             </Row>
             <h2 className="text-center">new features coming soon</h2>
