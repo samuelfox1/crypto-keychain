@@ -4,13 +4,13 @@ import { generatePassword } from '../../Utilty/GeneratePassword'
 
 export default function PasswordGenerator() {
 
-    const rangeDefault = 8
+    const rangeDefault = 128
     const [pwLength, setPwLength] = useState({
         min: 8,
         max: 128,
         value: rangeDefault
     })
-    const [textAreaRows, setTextAreaRows] = useState(1)
+    const [textAreaRows, setTextAreaRows] = useState(7)
     const [pwText, setPwText] = useState('')
     const [selectedValues, setSelectedValues] = useState([])
     const [checkBox, setCheckBox] = useState({
@@ -84,14 +84,16 @@ export default function PasswordGenerator() {
 
     return (
         <Container className="my-5">
-            <Row className="tab-content" id="nav-tabContent">
-                <div className="tab-pane fade show active text-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <Row className="justify-content-center">
+                <Col xs={10} md={4} >
                     <h1>Welcome!</h1>
-                    {/* <p>to your personal lock-box</p> */}
-                    <br />
-                    <p>securely create and store</p>
-                    <p>passwords and private text</p>
-                </div>
+                    <ul>
+                        <li><p>improve your digital security</p></li>
+                        <li><p>create new passwords or access keys</p></li>
+                        <li><p>add existing passwords or keys</p></li>
+                        <li><p>keep them safe in an encrypted keychain</p></li>
+                    </ul>
+                </Col>
             </Row>
             <Row className="justify-content-center" >
                 <Col xs={10} md={4} className="border-orange">
