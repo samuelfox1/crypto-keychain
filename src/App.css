@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+#signature {
+  position: fixed;
+  right: -4em;
+  bottom: 3.5em;
+  transform:rotate(-90deg);
+}
+small {
+  font-size: .75em !important;
+}
+
+@media only screen and (orientation: landscape) {
+  #signature {
+    transform: none;
+    left: 0;
+    bottom: -.5em;
+  }
+}
