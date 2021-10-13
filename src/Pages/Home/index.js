@@ -4,14 +4,15 @@ import { PageContext } from '../../Context/PageContext'
 
 export default function Home() {
 
-    const { setPage } = useContext(PageContext)
+    const { updatePage } = useContext(PageContext)
     console.log('rendering: Home')
     return (
         <Container className="my-5">
             <Row className="tab-content" id="nav-tabContent">
                 <div className="tab-pane fade show active text-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <h1>Welcome</h1>
-                    <p>to your personal lock-box</p>
+                    <h1>Welcome!</h1>
+                    {/* <p>to your personal lock-box</p> */}
+                    <br />
                     <p>securely create and store</p>
                     <p>passwords and private text</p>
                 </div>
