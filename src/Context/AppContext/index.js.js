@@ -28,8 +28,8 @@ export default function AppProvider({ children }) {
                 break;
         }
     }
-    console.log('rendering: PageProvider')
 
+    console.log('rendering: AppProvider')
 
     return (
         <AppContext.Provider value={{ content, updateContent }}>
