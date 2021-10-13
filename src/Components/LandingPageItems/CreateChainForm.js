@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
-import { LandingContext } from '../../Context/LandingContext'
+import { LandingContext } from '../../Context'
 
 export default function CreateChain() {
 
