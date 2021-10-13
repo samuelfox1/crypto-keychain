@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react'
 import Landing from '../../Pages/Landing'
-import PasswordGenerator from '../../Components/PasswordGenerator'
+import { PasswordGenerator } from '../../Components/PasswordGeneratorItems'
 
 export const AppContext = createContext()
 

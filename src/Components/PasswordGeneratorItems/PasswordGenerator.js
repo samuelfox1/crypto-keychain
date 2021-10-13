@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { generatePassword } from '../../Utilty/GeneratePassword'
+import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap'
+import { buildPassword } from '../../Utilty'
 
 export default function PasswordGenerator() {
 
@@ -39,9 +39,46 @@ export default function PasswordGenerator() {
             checked: true
         }
     })
+    const btnOptions = {
 
+        defaultBtn: () => (
+            < Button
+                variant="outline-info text-dark"
+                className="w-100 my-3"
+                disabled
+            >
+                generate
+            </Button >
+        )
+        ,
+        activeBtn: () => (
+            < Button
+                variant="outline-info text-dark"
+                className="w-100 my-3"
+                onClick={handleGeneratePassword}
+            >
+                generate
+            </Button >
+        )
+        ,
+        loadingBtn: () => (
+            <Button
+                variant="outline-info text-dark"
+                className="w-100 my-3"
+                disabled
+            >
+                <Spinner className="mx-1" as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                <Spinner className="mx-1" as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                <Spinner className="mx-1" as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+            </Button>
+        )
+
+    }
+
+    const [displayedButton, setDisplayedButton] = useState(btnOptions.defaultBtn())
     const handleCheckboxChange = (e) => {
         const { id, checked } = e.target
+        setPwText('')
         setCheckBox({
             ...checkBox,
             [id]: {
@@ -53,6 +90,7 @@ export default function PasswordGenerator() {
 
     const handleRangeChange = (e) => {
         const { value } = e.target
+        setPwText('')
         setPwLength({ ...pwLength, value })
         /* on a mobile device, the textarea needs to be:
             - minimum 1 row tall
@@ -64,11 +102,20 @@ export default function PasswordGenerator() {
     }
 
     const handleGeneratePassword = () => {
+
         const config = {
             values: selectedValues,
             length: pwLength.value
         };
-        setPwText(generatePassword(config))
+
+        setDisplayedButton(btnOptions.loadingBtn())
+
+        let interval = setInterval(() => setPwText(buildPassword(config)), 100)
+
+        setTimeout(() => {
+            clearInterval(interval)
+            setDisplayedButton(btnOptions.activeBtn())
+        }, 3000)
     }
 
     useEffect(() => {
@@ -79,6 +126,11 @@ export default function PasswordGenerator() {
         setSelectedValues(checkedBoxes)
     }, [checkBox])
 
+    useEffect(() => {
+        if (selectedValues.length) setDisplayedButton(btnOptions.activeBtn())
+        else setDisplayedButton(btnOptions.defaultBtn())
+
+    }, [selectedValues])
 
     console.log('rendering: passwordGenerator')
 
@@ -133,22 +185,8 @@ export default function PasswordGenerator() {
                             />
                         </Form.Group>
 
-                        {selectedValues.length
-                            ? < Button
-                                variant="outline-info text-dark"
-                                className="w-100 my-3"
-                                onClick={handleGeneratePassword}
-                            >
-                                generate
-                            </Button>
-                            : <Button
-                                variant="outline-info text-dark"
-                                className="w-100 my-3"
-                                disabled
-                            >
-                                generate
-                            </Button>
-                        }
+                        {displayedButton}
+
                     </Form>
                 </Col>
             </Row>
