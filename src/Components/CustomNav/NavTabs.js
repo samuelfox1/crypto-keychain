@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Tabs, Tab } from 'react-bootstrap'
-import { PageContext } from '../../Context/PageContext';
+import { AppContext } from '../../Context';
 
 export default function NavTabs() {
 
-    const [key, setKey] = useState('home');
+    const [key, setKey] = useState('landing');
     const [dynamicTabs, setDynamicTabs] = useState([])
-    const { updatePage } = useContext(PageContext)
+    const { updateContent } = useContext(AppContext)
     const keyBase = 'cryptoKC';
 
     const handleUpdateKey = (key) => {
         setKey(key)
-        updatePage(key)
+        updateContent(key)
     }
 
     const loopThroughChains = (cb) => {
@@ -52,7 +52,7 @@ export default function NavTabs() {
             onSelect={(key) => handleUpdateKey(key)}
             className=" justify-content-end"
         >
-            <Tab eventKey="home" title="Home" />
+            <Tab eventKey="landing" title="Home" />
             <Tab eventKey="passwordGenerator" title="password gen" />
             {dynamicTabs}
         </Tabs>
