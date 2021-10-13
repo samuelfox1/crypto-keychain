@@ -1,6 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { CreateChain } from '../../Components/Forms'
-import { DefaultButtons } from '../../Components/LandingPageItems'
+import { DefaultButtons, CreateChainForm } from '../../Components/LandingPageItems'
 
 export const LandingContext = createContext()
 
@@ -16,7 +15,7 @@ export default function LandingProvider({ children }) {
 
             case 'createChain':
                 console.log('here')
-                setLandingComponent(<CreateChain key={componentName} />)
+                setLandingComponent(<CreateChainForm key={componentName} />)
                 break;
 
             default:

@@ -20,14 +20,14 @@ export default function DefaultButtons() {
             <Row className="justify-content-center mb-5" >
                 <Col xs={10} md={4} className="border-orange">
                     <Button
-                        variant="outline-info text-dark"
+                        variant="outline-warning text-dark"
                         className="w-100 my-3"
                         onClick={() => updateLandingComponent('createChain')}
                     >
                         create new chain
                     </Button>
-                    <Button disabled variant="outline-info text-dark" className="w-100 my-3">access existing chain</Button>
-                    <Button disabled variant="outline-info text-dark" className="w-100 my-3">load from backup</Button>
+                    <Button disabled variant="outline-warning text-dark" className="w-100 my-3">access existing chain</Button>
+                    <Button disabled variant="outline-warning text-dark" className="w-100 my-3">load from backup</Button>
                 </Col>
             </Row>
             <h2 className="text-center">new features coming soon</h2>

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
-import { LandingContext } from '../../../Context'
+import { LandingContext } from '../../Context/LandingContext'
 
 export default function CreateChain() {
 
@@ -40,19 +40,16 @@ export default function CreateChain() {
         }
 
         if (password.length < 8) {
-            console.log(0)
             setErrorMessage({ ...errorMessage, name: '', pwlength: 'must be atleast 8 characters long', pwmatch: '' })
             setValidFormInputs(false)
             return
         }
         if (password !== confirmPassword) {
             // passwords do not match
-            console.log(1)
             setErrorMessage({ name: '', pwlength: '', pwmatch: 'passwords must match' })
             setValidFormInputs(false)
             return
         }
-        console.log(2)
         setErrorMessage({ name: '', pwlength: '', pwmatch: '' })
         setValidFormInputs(true)
 
@@ -67,10 +64,7 @@ export default function CreateChain() {
                     <h1>Create new chain</h1>
                     <ol>
                         <li><p >enter a name</p></li>
-                        <li><p >enter a password</p>
-                            {/* <p> <small>(to access your keychain)</small></p> */}
-                        </li>
-                        <li><p>confirm password</p></li>
+                        <li><p >enter a password</p></li>
                         <li><p>click create</p></li>
                     </ol>
                 </Col>
@@ -118,16 +112,16 @@ export default function CreateChain() {
 
                         <Form.Group className="d-flex justify-content-between">
                             <Button
-                                variant="outline-info text-dark"
+                                variant="outline-dark"
                                 className="my-3"
                                 onClick={() => updateLandingComponent('defaultButtons')}
                             >
-                                reset
+                                back
                             </Button>
 
                             {validFormInputs
                                 ? <Button
-                                    variant="outline-info text-dark"
+                                    variant="outline-warning text-dark"
                                     className="my-3"
                                     onClick={handleCreateChain}
                                 >
@@ -135,7 +129,7 @@ export default function CreateChain() {
                                 </Button>
                                 : <Button
                                     disabled
-                                    variant="outline-info text-dark"
+                                    variant="outline-warning text-dark"
                                     className="my-3"
                                 >
                                     create
