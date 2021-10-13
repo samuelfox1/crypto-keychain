@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { PageContext } from './Context/PageContext'
 import CustomNav from './Components/CustomNav'
 import './App.css';
+import { Container } from 'react-bootstrap';
 
 function App() {
 
@@ -11,7 +12,10 @@ function App() {
   return (
     <>
       <CustomNav />
-      {page}
+      <Container className="pb-1">
+        {page}
+      </Container>
+      <h6 id="signature">_samuel fox <small>2021</small></h6>
     </>
   );
 }
