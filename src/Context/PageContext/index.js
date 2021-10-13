@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react'
 import Home from '../../Pages/Home'
-import PasswordGenerator from '../../Pages/PasswordGenerator'
+import PasswordGenerator from '../../Components/PasswordGenerator'
 
 export const PageContext = createContext()
 
