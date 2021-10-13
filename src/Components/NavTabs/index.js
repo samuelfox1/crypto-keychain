@@ -9,49 +9,52 @@ export default function NavTabs() {
     const { updatePage } = useContext(PageContext)
     const keyBase = 'cryptoKC';
 
-    useEffect(() => {
+    const handleUpdateKey = (key) => {
+        setKey(key)
         updatePage(key)
-    }, [key])
+    }
 
     const loopThroughChains = (cb) => {
         for (const [key] of Object.entries(localStorage)) {
             // format each name by removing the 'keyBase-' text
             const k = key.split('-');
-            if (k[0] === keyBase) {
-                k.shift();
-                cb(k, key,);
-            };
+            if (k[0] !== keyBase) continue
+            k.shift();
+            const name = k.join(' ')
+            cb(name);
+
         };
     };
 
     const displaySavedChains = () => {
-        const cb = (k, key) => {
+        const cb = (name) => {
             setDynamicTabs((tabs) => [
                 ...tabs,
-                <Tab eventKey={k[0]} title={k[0]} key={k[0]} >
-                    {/* <h1 className="d-block">{k[0]}</h1> */}
+                <Tab eventKey={name} title={name} key={name} >
+                    {/* <h1 className="d-block">{name}</h1> */}
                 </Tab>
             ])
         };
+
         loopThroughChains(cb);
     };
 
     useEffect(() => {
         const testKeys = ['one', 'two']
         testKeys.map(key => localStorage.setItem(`${keyBase}-${key}`, `data-${key}`))
-        displaySavedChains();
+        // displaySavedChains();
     }, [])
 
     return (
         <Tabs
             id="controlled-tab-example"
             activeKey={key}
-            onSelect={(k) => setKey(k)}
-            className="col-xs-12 col-sm-9 justify-content-end"
+            onSelect={(key) => handleUpdateKey(key)}
+            className=" justify-content-end"
         >
             <Tab eventKey="home" title="Home" />
             <Tab eventKey="passwordGenerator" title="password gen" />
-            {/* {dynamicTabs} */}
+            {dynamicTabs}
         </Tabs>
     );
 }
