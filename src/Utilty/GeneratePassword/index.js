@@ -36,4 +36,9 @@ const generatePasswordString = ({ values, length }) => {
 // }
 
 
-export const generatePassword = (config) => generatePasswordString(config);
+export const generatePassword = (config) => (
+    // validate there are selected values & a password length before calling
+    config.values.length
+    && config.length
+    && generatePasswordString(config)
+);
