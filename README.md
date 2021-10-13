@@ -1,67 +1,54 @@
 
-# crypto 🔑⛓
+# crypto-keychain
 
->## Description 
+## Description 
 
-* Simple tool to generate endless high security passwords.
-* #### Story
-    * AS A: employee with access to sensitive data
-    * I WANT: to randomly generate a password that meets certain criteria
-    * SO THAT: I can create a strong password that provides greater security
+ Generate and store passwords in an encrypted keychain
+
+#### [check it out!](https://samuelfox1.github.io/crypto-keychain) 
 
 <br>
 
->## Table of Contents
+## Table of Contents
 
-* [Contributing](#Contributing)
-* [Description](#Description)
-* [Installation](#Installation)
-* [License](#License)
+* [Description](#description)
+* [License](#license)
 * [Questions](#Questions)
 * [Story](#Story)
 * [Testing](#Testing)
 * [Usage](#Usage)
-<br>
-
-[![license](https://img.shields.io/badge/License-MIT-blue)](#License)
-<br>
-
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://www.contributor-covenant.org/)
-<br>
-
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)![VS Code](https://img.shields.io/badge/-VS%20Code-4D4D4D?logo=Visual%20Studio%20Code&logoColor=007ACC)![html](https://img.shields.io/badge/-HTML5-blue?logo=html5)![css](https://img.shields.io/badge/-CSS3-red?logo=css3)![javascript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
-
-
->## Product
-
-* [Check it out!](https://samuelfox1.github.io/crypto-keychain) 
-
-![Screenshot](./assets/images/screenshot01.png)
-![Screenshot](./assets/images/screenshot02.png)
 
 <br>
 
->## Usage
+![license](https://img.shields.io/badge/License-MIT-blue)
 
-1. Navigat to the website
-2. Click the big Red Button to get started
-3. Select password length
-4. select character types
-5. enjoy your new password
+![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)
+![VS Code](https://img.shields.io/badge/-VS%20Code-4D4D4D?logo=Visual%20Studio%20Code&logoColor=007ACC)
+![html](https://img.shields.io/badge/-HTML5-blue?logo=html5)
+![css](https://img.shields.io/badge/-CSS3-red?logo=css3)
+![javascript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)
+
+
+<br>
+<br>
+
+### Usage
+1. navigate to the generate password tab.
+2. choose password parameters
+3. click to create a new password or access key 
 
 <br>
 
->## Contributing
-
-* [Submit bugs and feature requests](https://github.com/samuelfox1/password-generator/issues)
-* [Review changes](https://github.com/samuelfox1/password-generator/pulls)
-* [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/)
-
+#### Coming Soon
+1. create an encrypted keychain
+2. add and remove passwords to a keychain
+3. backup your keychain for safe keeping
+4. load a backup to access your stored passwords
+<br>
 <br>
 
 
->## Questions
+### Questions
 
 | Name | Email  | Github  | LinkedIn |
 | :--: | :----: | :-----: | :------: |
@@ -69,7 +56,7 @@
 
 <br>
 
->## License
+### License
 
 MIT License
 
@@ -89,4 +76,4 @@ The images found in 'assets/images/logo/' are trademarks of their respective com
 2020
 <br>
 
->## [Top of page](#password-generator)
+## [Top of page](#crypto-keychain)
