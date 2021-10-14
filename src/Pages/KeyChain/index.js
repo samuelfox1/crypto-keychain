@@ -4,12 +4,12 @@ import { KeychainContext } from '../../Context'
 
 export default function Keychain() {
 
-    const { KeychainComponent } = useContext(KeychainContext)
+    const { KeychainComponent, keychainData } = useContext(KeychainContext)
 
     console.log('rendering: Landing')
 
     return (
-        <Container className="my-5">
+        <Container className="my-5 border">
             {KeychainComponent}
         </Container >
     )
