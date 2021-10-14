@@ -4,12 +4,11 @@ import { buildPassword } from '../../Utilty'
 
 export default function PasswordGenerator() {
 
-    const rangeDefault = 68
     const [textAreaRows, setTextAreaRows] = useState(3)
     const [pwLength, setPwLength] = useState({
         min: 8,
         max: 128,
-        value: rangeDefault
+        value: 68
     })
     const [pwText, setPwText] = useState('')
     const [selectedValues, setSelectedValues] = useState([])

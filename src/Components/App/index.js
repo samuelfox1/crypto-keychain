@@ -13,17 +13,15 @@ function App() {
 
   return (
     <>
-      <CustomNav />
-      <Container className="pb-1">
-
-        <LandingProvider>
-          <KeychainProvider>
+      <KeychainProvider>
+        <CustomNav />
+        <Container className="pb-1">
+          <LandingProvider>
             {AppComponent}
-          </KeychainProvider>
-        </LandingProvider>
-
-      </Container>
-      <Footer />
+          </LandingProvider>
+        </Container>
+        <Footer />
+      </KeychainProvider>
     </>
   );
 }

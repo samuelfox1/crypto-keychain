@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
-import { LandingContext } from '../../Context'
+import { AppContext, LandingContext } from '../../Context'
 
 export default function CreateChain() {
 
     const { updateLandingComponent } = useContext(LandingContext)
+    const { updateAppComponent } = useContext(AppContext)
     const [errorMessage, setErrorMessage] = useState({
         name: '',
         pwlength: '',
@@ -25,7 +26,7 @@ export default function CreateChain() {
     }
 
     const handleCreateChain = () => {
-        console.log('clicked')
+        updateAppComponent('keychain')
     }
 
     useEffect(() => {
@@ -73,7 +74,7 @@ export default function CreateChain() {
                 <Col xs={10} md={4} className="border-orange">
                     <Form className="mt-3">
 
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3" controlId="keychainName">
                             <Form.Label>keychain name:</Form.Label>
                             <p className="error mb-0">{errorMessage.name}</p>
                             <Form.Control
@@ -81,12 +82,11 @@ export default function CreateChain() {
                                 type="input"
                                 name="name"
                                 value={formInputs.name}
-                                placeholder="social-media"
                                 onChange={handleInputChange}
                             />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3" controlId="keychainPassword">
                             <Form.Label>password:</Form.Label>
                             <p className="error mb-0">{errorMessage.pwlength}</p>
                             <Form.Control
@@ -98,7 +98,7 @@ export default function CreateChain() {
                             />
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3" controlId="kychainConfirmPassword">
                             <Form.Label>confirm password: </Form.Label>
                             <p className="error mb-0">{errorMessage.pwmatch}</p>
                             <Form.Control
@@ -114,7 +114,7 @@ export default function CreateChain() {
                             <Button
                                 variant="outline-dark"
                                 className="my-3"
-                                onClick={() => updateLandingComponent('defaultButtons')}
+                                onClick={() => updateLandingComponent('DefaultLayout')}
                             >
                                 back
                             </Button>
