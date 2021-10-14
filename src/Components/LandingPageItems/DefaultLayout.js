@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
 import { LandingContext } from '../../Context'
 
-export default function DefaultButtons() {
+export default function DefaultLayout() {
     const { updateLandingComponent } = useContext(LandingContext)
     return (
         <>

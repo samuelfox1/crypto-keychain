@@ -1,4 +1,4 @@
-import DefaultButtons from "./DefaultButtons";
+import DefaultLayout from "./DefaultLayout";
 import CreateChainForm from './CreateChainForm'
 
-export { DefaultButtons, CreateChainForm }
+export { DefaultLayout, CreateChainForm }

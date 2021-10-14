@@ -1,10 +1,15 @@
-import { AppProvider, AppContext } from "./App";
-import { LandingProvider, LandingContext } from "./Landing";
+import { AppContext, AppProvider } from "./App";
+import { LandingContext, LandingProvider } from "./Landing";
+import { KeyChainContext, KeyChainProvider } from './KeyChain'
 
 
 export {
-    AppProvider,
     AppContext,
+    AppProvider,
+
     LandingContext,
-    LandingProvider
+    LandingProvider,
+
+    KeyChainContext,
+    KeyChainProvider
 }

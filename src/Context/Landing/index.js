@@ -1,16 +1,16 @@
 import React, { createContext, useState } from 'react'
-import { DefaultButtons, CreateChainForm } from '../../Components/LandingPageItems'
+import { DefaultLayout, CreateChainForm } from '../../Components/LandingPageItems'
 
 export const LandingContext = createContext()
 
 export const LandingProvider = ({ children }) => {
 
-    const [LandingComponent, setLandingComponent] = useState(<DefaultButtons key='landing-DefaultButtons' />)
+    const [LandingComponent, setLandingComponent] = useState(<DefaultLayout key='landing-DefaultLayout' />)
 
     const updateLandingComponent = (componentName) => {
         switch (componentName) {
-            case 'defaultButtons':
-                setLandingComponent(<DefaultButtons key={`landing-${componentName}`} />)
+            case 'DefaultLayout':
+                setLandingComponent(<DefaultLayout key={`landing-${componentName}`} />)
                 break;
 
             case 'createChain':
