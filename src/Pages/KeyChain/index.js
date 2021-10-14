@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import { Container } from 'react-bootstrap'
-import { KeyChainContext } from '../../Context'
+import { KeychainContext } from '../../Context'
 
-export default function KeyChain() {
+export default function Keychain() {
 
-    const { KeyChainComponent } = useContext(KeyChainContext)
+    const { KeychainComponent } = useContext(KeychainContext)
 
     console.log('rendering: Landing')
 
     return (
         <Container className="my-5">
-            {KeyChainComponent}
+            {KeychainComponent}
         </Container >
     )
 }

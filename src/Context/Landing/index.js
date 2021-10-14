@@ -14,7 +14,6 @@ export const LandingProvider = ({ children }) => {
                 break;
 
             case 'createChain':
-                console.log('here')
                 setLandingComponent(<CreateChainForm key={componentName} />)
                 break;
 

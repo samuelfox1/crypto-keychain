@@ -1,7 +1,7 @@
 import Landing from "./Landing";
-import KeyChain from "./KeyChain"
+import Keychain from "./Keychain"
 
 export {
     Landing,
-    KeyChain
+    Keychain
 }

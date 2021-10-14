@@ -1,18 +1,19 @@
 import React, { createContext, useState } from 'react'
-// import { } from '../../Components/KeyChainItems'
+import KeychainMain from '../../Components/KeychainItems/Main'
+// import { } from '../../Components/KeychainItems'
 
-export const KeyChainContext = createContext()
+export const KeychainContext = createContext()
 
-export const KeyChainProvider = ({ children }) => {
+export const KeychainProvider = ({ children }) => {
 
-    const defaultComponenet = <h1 key='KeyChain-DefaultLayout'>hello Default</h1>
+    const defaultComponenet = <KeychainMain key="keychainMain" />
 
-    const [KeyChainComponent, setKeyChainComponent] = useState(defaultComponenet)
+    const [KeychainComponent, setKeychainComponent] = useState(defaultComponenet)
 
-    const updateKeyChainComponent = (componentName) => {
+    const updateKeychainComponent = (componentName) => {
         switch (componentName) {
             case 'defaultComponent':
-                setKeyChainComponent(defaultComponenet)
+                setKeychainComponent(defaultComponenet)
                 break;
 
             default:
@@ -20,11 +21,11 @@ export const KeyChainProvider = ({ children }) => {
         }
     }
 
-    console.log('rendering: KeyChainProvider')
+    console.log('rendering: KeychainProvider')
 
     return (
-        <KeyChainContext.Provider value={{ KeyChainComponent, updateKeyChainComponent }}>
+        <KeychainContext.Provider value={{ KeychainComponent, updateKeychainComponent }}>
             {children}
-        </KeyChainContext.Provider>
+        </KeychainContext.Provider>
     )
 }
