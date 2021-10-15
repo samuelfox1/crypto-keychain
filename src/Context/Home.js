@@ -1,15 +1,23 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { AppContext } from '.'
 import { DefaultLayout, CreateChainForm } from '../Components/HomePageItems'
 
 export const HomeContext = createContext()
 
 export const HomeProvider = ({ children }) => {
 
-    const [HomeComponent, setHomeComponent] = useState(<DefaultLayout key='Home-DefaultLayout' />)
+    const { AppComponent } = useContext(AppContext)
+    const [defaultKey] = useState('DefaultLayout')
+    const [HomeComponent, setHomeComponent] = useState(<DefaultLayout key={`Home-${defaultKey}`} />)
+
+    useEffect(() => {
+        if (AppComponent.key === 'Home') updateHomeComponent(defaultKey)
+    }, [AppComponent])
 
     const updateHomeComponent = (componentName) => {
+        // setTimeout(() => {
         switch (componentName) {
-            case 'DefaultLayout':
+            case defaultKey:
                 setHomeComponent(<DefaultLayout key={`Home-${componentName}`} />)
                 break;
 
@@ -20,6 +28,7 @@ export const HomeProvider = ({ children }) => {
             default:
                 break;
         }
+        // }, 100)
     }
 
     console.log('rendering: HomeProvider')

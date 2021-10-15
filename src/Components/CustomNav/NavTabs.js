@@ -12,14 +12,15 @@ export default function NavTabs() {
 
     const handleUpdateKey = (key) => {
         setKey(key)
+        console.log(key)
         updateAppComponent(key)
     }
 
     useEffect(() => {
         const { name } = keychainData
         if (!name) return setKeychainTab()
-        setKeychainTab(<Tab eventKey="keychain" title={name} />)
-        handleUpdateKey('keychain')
+        setKeychainTab(<Tab eventKey="Keychain" title={name} />)
+        handleUpdateKey('Keychain')
 
     }, [keychainData])
 

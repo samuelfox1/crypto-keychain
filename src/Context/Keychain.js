@@ -1,16 +1,24 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { AppContext } from '.';
 import { DefaultLayout, AddItemForm } from '../Components/KeychainPageItems';
+
 export const KeychainContext = createContext()
 
 export const KeychainProvider = ({ children }) => {
 
-    const defaultComponenet = <DefaultLayout key="DefaultLayout" />
+    const defaultKey = 'DefaultLayout'
+    const defaultComponenet = <DefaultLayout key={defaultKey} />
 
     const [KeychainComponent, setKeychainComponent] = useState()
+    const { AppComponent } = useContext(AppContext)
     const [keychainData, setKeychainData] = useState({
         name: '',
         items: []
     })
+
+    useEffect(() => {
+        if (AppComponent.key === 'Keychain') updateKeychainComponent(defaultKey)
+    }, [AppComponent])
 
     const clearKeychainData = () => setKeychainData({ name: '', items: [] })
 
@@ -21,9 +29,9 @@ export const KeychainProvider = ({ children }) => {
 
     const updateKeychainComponent = (componentName) => {
         switch (componentName) {
-            // case 'defaultComponent':
-            //     setKeychainComponent(defaultComponenet)
-            //     break;
+            case defaultKey:
+                setKeychainComponent(defaultComponenet)
+                break;
 
             case 'addKeychainItemForm':
                 setKeychainComponent(<AddItemForm key={componentName} />)

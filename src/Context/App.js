@@ -10,19 +10,22 @@ export const AppProvider = ({ children }) => {
     const [AppComponent, setAppComponent] = useState(defaultComponent)
 
     const updateAppComponent = (componentName) => {
-        switch (componentName) {
-            case 'Home': setAppComponent(<Home key={componentName} />)
-                break;
+        // slight delay just for fun / feel
+        setTimeout(() => {
+            switch (componentName) {
+                case 'Home': setAppComponent(<Home key={componentName} />)
+                    break;
 
-            case 'DefaultLayout': setAppComponent(<DefaultLayout key={componentName} />)
-                break;
+                case 'DefaultLayout': setAppComponent(<DefaultLayout key={componentName} />)
+                    break;
 
-            case 'keychain': setAppComponent(<Keychain key={componentName} />)
-                break;
+                case 'Keychain': setAppComponent(<Keychain key={componentName} />)
+                    break;
 
-            default: setAppComponent(defaultComponent)
-                break;
-        }
+                default: setAppComponent(defaultComponent)
+                    break;
+            }
+        }, 100);
     }
 
     console.log('rendering: AppProvider')
