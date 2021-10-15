@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
-import { AppContext, LandingContext } from '../../Context'
+import { AppContext, LandingContext, KeychainContext } from '../../Context'
+import { setLocalStorage, getLocalStorage, getUserPassword } from '../../Utilty/CreateKeychain'
 
 export default function CreateChain() {
 
-    const { updateLandingComponent } = useContext(LandingContext)
     const { updateAppComponent } = useContext(AppContext)
+    const { setKeychainData } = useContext(KeychainContext)
+    const { updateLandingComponent } = useContext(LandingContext)
     const [errorMessage, setErrorMessage] = useState({
         name: '',
         pwlength: '',
@@ -13,9 +15,9 @@ export default function CreateChain() {
     })
 
     const [formInputs, setFormInputs] = useState({
-        name: '',
-        password: '',
-        confirmPassword: ''
+        name: 'test-0',
+        password: 'password',
+        confirmPassword: 'password'
     })
 
     const [validFormInputs, setValidFormInputs] = useState(false)
@@ -26,6 +28,10 @@ export default function CreateChain() {
     }
 
     const handleCreateChain = () => {
+        const { name, password } = formInputs
+        setKeychainData({ name, items: [] })
+        setLocalStorage(name, password, [])
+
         updateAppComponent('keychain')
     }
 
