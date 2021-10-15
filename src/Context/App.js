@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react'
-import { Keychain, Landing } from '../../Pages'
-import { PasswordGenerator } from '../../Components/PasswordGeneratorItems'
+import { Keychain, Landing } from '../Pages'
+import { DefaultLayout } from '../Components/PasswordGeneratorPageItems'
 
 export const AppContext = createContext()
 
@@ -11,20 +11,16 @@ export const AppProvider = ({ children }) => {
 
     const updateAppComponent = (componentName) => {
         switch (componentName) {
-            case 'landing':
-                setAppComponent(<Landing key={componentName} />)
+            case 'landing': setAppComponent(<Landing key={componentName} />)
                 break;
 
-            case 'passwordGenerator':
-                setAppComponent(<PasswordGenerator key={componentName} />)
+            case 'DefaultLayout': setAppComponent(<DefaultLayout key={componentName} />)
                 break;
 
-            case 'keychain':
-                setAppComponent(<Keychain key={componentName} />)
+            case 'keychain': setAppComponent(<Keychain key={componentName} />)
                 break;
 
-            default:
-                setAppComponent(defaultComponent)
+            default: setAppComponent(defaultComponent)
                 break;
         }
     }

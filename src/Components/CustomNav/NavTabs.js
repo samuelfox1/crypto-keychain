@@ -19,6 +19,7 @@ export default function NavTabs() {
         const { name } = keychainData
         if (!name) return setKeychainTab()
         setKeychainTab(<Tab eventKey="keychain" title={name} />)
+        handleUpdateKey('keychain')
 
     }, [keychainData])
 
@@ -61,7 +62,7 @@ export default function NavTabs() {
             className=" justify-content-end"
         >
             <Tab eventKey="landing" title="Home" />
-            <Tab eventKey="passwordGenerator" title="password gen" />
+            <Tab eventKey="DefaultLayout" title="password gen" />
             {keychainTab}
         </Tabs>
     );

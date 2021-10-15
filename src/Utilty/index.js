@@ -1,5 +1,7 @@
-import { buildPassword } from "./BuildPassword";
+import { CreatePassword } from "./CreatePassword";
+import { getUserPassword } from './CreateKeychain'
 
 export {
-    buildPassword
+    CreatePassword,
+    getUserPassword
 }

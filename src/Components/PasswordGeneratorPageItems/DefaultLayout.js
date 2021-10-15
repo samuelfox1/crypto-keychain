@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap'
-import { buildPassword } from '../../Utilty'
+import { CreatePassword } from '../../Utilty'
 
-export default function PasswordGenerator() {
+export default function DefaultLayout() {
 
     const [textAreaRows, setTextAreaRows] = useState(3)
     const [pwLength, setPwLength] = useState({
@@ -109,7 +109,7 @@ export default function PasswordGenerator() {
 
         setDisplayedButton(btnOptions.loadingBtn())
 
-        let interval = setInterval(() => setPwText(buildPassword(config)), 100)
+        let interval = setInterval(() => setPwText(CreatePassword(config)), 100)
 
         setTimeout(() => {
             clearInterval(interval)
@@ -131,7 +131,7 @@ export default function PasswordGenerator() {
 
     }, [selectedValues])
 
-    console.log('rendering: passwordGenerator')
+    console.log('rendering: DefaultLayout')
 
     return (
         <Container className="my-5">

@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { DefaultLayout, CreateChainForm } from '../../Components/LandingPageItems'
+import { DefaultLayout, CreateChainForm } from '../Components/LandingPageItems'
 
 export const LandingContext = createContext()
 

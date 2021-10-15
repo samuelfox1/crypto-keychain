@@ -1,12 +1,12 @@
 import React, { createContext, useState } from 'react';
-import { KeychainMain } from '../../Components/KeychainItems';
+import { KeychainMain, AddItemForm } from '../Components/KeychainPageItems';
 export const KeychainContext = createContext()
 
 export const KeychainProvider = ({ children }) => {
 
     const defaultComponenet = <KeychainMain key="keychainMain" />
 
-    const [KeychainComponent, setKeychainComponent] = useState(defaultComponenet)
+    const [KeychainComponent, setKeychainComponent] = useState()
     const [keychainData, setKeychainData] = useState({
         name: '',
         items: []
@@ -21,8 +21,12 @@ export const KeychainProvider = ({ children }) => {
 
     const updateKeychainComponent = (componentName) => {
         switch (componentName) {
-            case 'defaultComponent':
-                setKeychainComponent(defaultComponenet)
+            // case 'defaultComponent':
+            //     setKeychainComponent(defaultComponenet)
+            //     break;
+
+            case 'addKeychainItemForm':
+                setKeychainComponent(<AddItemForm key={componentName} />)
                 break;
 
             default:
@@ -39,6 +43,7 @@ export const KeychainProvider = ({ children }) => {
 
             clearKeychainData,
             deleteKeychainItem,
+            setKeychainData,
             keychainData
         }}>
             {children}
