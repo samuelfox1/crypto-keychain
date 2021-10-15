@@ -3,7 +3,7 @@ import { Col, Container, Row, Button } from 'react-bootstrap'
 import { KeychainContext } from '../../Context'
 import KeychainItem from './KeychainItem'
 
-export default function KeychainMain() {
+export default function DefaultLayout() {
 
     const [displayForm, setDisplayForm] = useState(false)
     const { keychainData, updateKeychainComponent, } = useContext(KeychainContext)

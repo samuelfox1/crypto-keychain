@@ -1,10 +1,10 @@
 import React, { createContext, useState } from 'react';
-import { KeychainMain, AddItemForm } from '../Components/KeychainPageItems';
+import { DefaultLayout, AddItemForm } from '../Components/KeychainPageItems';
 export const KeychainContext = createContext()
 
 export const KeychainProvider = ({ children }) => {
 
-    const defaultComponenet = <KeychainMain key="keychainMain" />
+    const defaultComponenet = <DefaultLayout key="DefaultLayout" />
 
     const [KeychainComponent, setKeychainComponent] = useState()
     const [keychainData, setKeychainData] = useState({

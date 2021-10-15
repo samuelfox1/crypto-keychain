@@ -8,7 +8,7 @@ export default function Keychain() {
     const { keychainData, KeychainComponent, updateKeychainComponent, } = useContext(KeychainContext)
     const { name, items } = keychainData
 
-    console.log('rendering: KeyChainMain')
+    console.log('rendering: DefaultLayout')
 
     return (
         <Container className="my-5 border">
