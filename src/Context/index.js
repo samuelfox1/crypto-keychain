@@ -1,5 +1,5 @@
 import { AppContext, AppProvider } from "./App";
-import { LandingContext, LandingProvider } from "./Landing";
+import { HomeContext, HomeProvider } from "./Home";
 import { KeychainContext, KeychainProvider } from './Keychain';
 
 
@@ -7,8 +7,8 @@ export {
     AppContext,
     AppProvider,
 
-    LandingContext,
-    LandingProvider,
+    HomeContext,
+    HomeProvider,
 
     KeychainContext,
     KeychainProvider

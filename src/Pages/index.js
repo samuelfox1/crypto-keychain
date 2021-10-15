@@ -1,7 +1,7 @@
-import Landing from "./Landing";
+import Home from "./Home";
 import Keychain from "./Keychain"
 
 export {
-    Landing,
+    Home,
     Keychain
 }

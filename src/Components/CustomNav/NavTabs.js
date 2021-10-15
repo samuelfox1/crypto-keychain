@@ -4,7 +4,7 @@ import { AppContext, KeychainContext } from '../../Context';
 
 export default function NavTabs() {
 
-    const [key, setKey] = useState('landing');
+    const [key, setKey] = useState('Home');
     const [keychainTab, setKeychainTab] = useState()
     const { updateAppComponent } = useContext(AppContext)
     const { keychainData } = useContext(KeychainContext)
@@ -61,7 +61,7 @@ export default function NavTabs() {
             onSelect={(key) => handleUpdateKey(key)}
             className=" justify-content-end"
         >
-            <Tab eventKey="landing" title="Home" />
+            <Tab eventKey="Home" title="Home" />
             <Tab eventKey="DefaultLayout" title="password gen" />
             {keychainTab}
         </Tabs>

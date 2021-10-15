@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
-import { LandingContext } from '../Context'
+import { HomeContext } from '../Context'
 // import { getUserPassword } from '../Utilty'
 
-export default function Landing() {
+export default function Home() {
 
-    const { LandingComponent } = useContext(LandingContext)
+    const { HomeComponent } = useContext(HomeContext)
 
     const [pw, setPw] = useState();
 
@@ -14,11 +14,11 @@ export default function Landing() {
     //     console.log(pw)
     // }, [])
 
-    console.log('rendering: Landing')
+    console.log('rendering: Home')
 
     return (
         <Container className="my-5">
-            {LandingComponent}
+            {HomeComponent}
         </Container >
     )
 }

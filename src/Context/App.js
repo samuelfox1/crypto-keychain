@@ -1,17 +1,17 @@
 import React, { useState, createContext } from 'react'
-import { Keychain, Landing } from '../Pages'
+import { Keychain, Home } from '../Pages'
 import { DefaultLayout } from '../Components/PasswordGeneratorPageItems'
 
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
 
-    const defaultComponent = <Landing key="landing" />
+    const defaultComponent = <Home key="Home" />
     const [AppComponent, setAppComponent] = useState(defaultComponent)
 
     const updateAppComponent = (componentName) => {
         switch (componentName) {
-            case 'landing': setAppComponent(<Landing key={componentName} />)
+            case 'Home': setAppComponent(<Home key={componentName} />)
                 break;
 
             case 'DefaultLayout': setAppComponent(<DefaultLayout key={componentName} />)

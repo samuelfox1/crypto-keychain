@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import React, { useContext } from 'react'
 import { Container } from 'react-bootstrap';
-import { AppContext, LandingProvider, KeychainProvider } from '../../Context/'
+import { AppContext, HomeProvider, KeychainProvider } from '../../Context/'
 import CustomNav from '../CustomNav'
 import Footer from '../Footer';
 import './App.css';
@@ -16,9 +16,9 @@ function App() {
       <KeychainProvider>
         <CustomNav />
         <Container className="pb-1">
-          <LandingProvider>
+          <HomeProvider>
             {AppComponent}
-          </LandingProvider>
+          </HomeProvider>
         </Container>
         <Footer />
       </KeychainProvider>

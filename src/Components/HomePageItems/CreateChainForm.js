@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
-import { AppContext, LandingContext, KeychainContext } from '../../Context'
+import { AppContext, HomeContext, KeychainContext } from '../../Context'
 import { setLocalStorage, getLocalStorage, getUserPassword } from '../../Utilty/CreateKeychain'
 
 export default function CreateChain() {
 
     const { updateAppComponent } = useContext(AppContext)
     const { setKeychainData } = useContext(KeychainContext)
-    const { updateLandingComponent } = useContext(LandingContext)
+    const { updateHomeComponent } = useContext(HomeContext)
     const [errorMessage, setErrorMessage] = useState({
         name: '',
         pwlength: '',
@@ -120,7 +120,7 @@ export default function CreateChain() {
                             <Button
                                 variant="outline-dark"
                                 className="my-3"
-                                onClick={() => updateLandingComponent('DefaultLayout')}
+                                onClick={() => updateHomeComponent('DefaultLayout')}
                             >
                                 back
                             </Button>

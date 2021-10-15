@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
-import { LandingContext } from '../../Context'
+import { HomeContext } from '../../Context'
 
 export default function DefaultLayout() {
-    const { updateLandingComponent } = useContext(LandingContext)
+    const { updateHomeComponent } = useContext(HomeContext)
     return (
         <>
             <Row className="justify-content-center">
@@ -22,7 +22,7 @@ export default function DefaultLayout() {
                     <Button
                         variant="outline-warning text-dark"
                         className="w-100 my-3"
-                        onClick={() => updateLandingComponent('createChain')}
+                        onClick={() => updateHomeComponent('createChain')}
                     >
                         create new chain
                     </Button>
