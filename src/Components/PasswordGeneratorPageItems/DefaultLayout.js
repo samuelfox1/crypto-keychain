@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
-import { generatePassword } from '../../Utilty/GeneratePassword'
+import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap'
+import { createPassword } from '../../Utilty'
 
-export default function PasswordGenerator() {
+export default function DefaultLayout() {
 
-    const rangeDefault = 128
+    const [textAreaRows, setTextAreaRows] = useState(3)
     const [pwLength, setPwLength] = useState({
         min: 8,
         max: 128,
-        value: rangeDefault
+        value: 68
     })
-    const [textAreaRows, setTextAreaRows] = useState(7)
     const [pwText, setPwText] = useState('')
     const [selectedValues, setSelectedValues] = useState([])
     const [checkBox, setCheckBox] = useState({
@@ -39,9 +38,46 @@ export default function PasswordGenerator() {
             checked: true
         }
     })
+    const btnOptions = {
 
+        defaultBtn: () => (
+            < Button
+                variant="outline-info text-dark"
+                className="w-100 my-3"
+                disabled
+            >
+                generate
+            </Button >
+        )
+        ,
+        activeBtn: () => (
+            < Button
+                variant="outline-info text-dark"
+                className="w-100 my-3"
+                onClick={handleGeneratePassword}
+            >
+                generate
+            </Button >
+        )
+        ,
+        loadingBtn: () => (
+            <Button
+                variant="outline-info text-dark"
+                className="w-100 my-3"
+                disabled
+            >
+                <Spinner className="mx-1" as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                <Spinner className="mx-1" as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+                <Spinner className="mx-1" as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+            </Button>
+        )
+
+    }
+
+    const [displayedButton, setDisplayedButton] = useState(btnOptions.defaultBtn())
     const handleCheckboxChange = (e) => {
         const { id, checked } = e.target
+        setPwText('')
         setCheckBox({
             ...checkBox,
             [id]: {
@@ -53,6 +89,7 @@ export default function PasswordGenerator() {
 
     const handleRangeChange = (e) => {
         const { value } = e.target
+        setPwText('')
         setPwLength({ ...pwLength, value })
         /* on a mobile device, the textarea needs to be:
             - minimum 1 row tall
@@ -64,11 +101,20 @@ export default function PasswordGenerator() {
     }
 
     const handleGeneratePassword = () => {
+
         const config = {
             values: selectedValues,
             length: pwLength.value
         };
-        setPwText(generatePassword(config))
+
+        setDisplayedButton(btnOptions.loadingBtn())
+
+        let interval = setInterval(() => setPwText(createPassword(config)), 100)
+
+        setTimeout(() => {
+            clearInterval(interval)
+            setDisplayedButton(btnOptions.activeBtn())
+        }, 2000)
     }
 
     useEffect(() => {
@@ -79,20 +125,25 @@ export default function PasswordGenerator() {
         setSelectedValues(checkedBoxes)
     }, [checkBox])
 
+    useEffect(() => {
+        if (selectedValues.length) setDisplayedButton(btnOptions.activeBtn())
+        else setDisplayedButton(btnOptions.defaultBtn())
 
-    console.log('rendering: passwordGenerator')
+    }, [selectedValues])
+
+    console.log('rendering: DefaultLayout')
 
     return (
         <Container className="my-5">
             <Row className="justify-content-center">
-                <Col xs={10} md={4} >
-                    <h1>Welcome!</h1>
-                    <ul>
-                        <li><p>improve your digital security</p></li>
-                        <li><p>create new passwords or access keys</p></li>
-                        <li><p>add existing passwords or keys</p></li>
-                        <li><p>keep them safe in an encrypted keychain</p></li>
-                    </ul>
+                <Col xs={11} md={4} >
+                    <h2>Password Generator</h2>
+                    <ol>
+                        <li><p>select characters</p></li>
+                        <li><p>select length</p></li>
+                        <li><p>click generate</p></li>
+                    </ol>
+
                 </Col>
             </Row>
             <Row className="justify-content-center" >
@@ -127,29 +178,14 @@ export default function PasswordGenerator() {
                                 as="textarea"
                                 rows={textAreaRows}
                                 size="sm"
-                                placeholder={pwText}
-                                disabled
+                                value={pwText}
+                                // disabled
                                 style={{ resize: "none" }}
                             />
                         </Form.Group>
 
-                        {selectedValues.length
-                            ? < Button
-                                variant="outline-info text-dark"
-                                className="w-100 my-3"
-                                onClick={handleGeneratePassword}
+                        {displayedButton}
 
-                            >
-                                generate password
-                            </Button>
-                            : <Button
-                                variant="outline-info text-dark"
-                                className="w-100 my-3"
-                                disabled
-                            >
-                                generate password
-                            </Button>
-                        }
                     </Form>
                 </Col>
             </Row>

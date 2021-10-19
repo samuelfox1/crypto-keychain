@@ -3,6 +3,7 @@
 :root {
   --orange: rgb(242, 169, 0);
   --border-rad: .5em;
+  --error: rgb(242, 97, 0);
 }
 
 body {
@@ -20,15 +21,9 @@ code {
     monospace;
 }
 
-.border {
-  border-radius: var(--border-rad);
+p {
+margin-bottom: 0;
 }
-
-.border-orange {
-  border-radius: var(--border-rad);
-  border: solid var(--orange) 1px 
-}
-
 div#root {
   max-height:100vh;
   max-width: 100vw;
@@ -38,4 +33,25 @@ div#root {
   sans-serif; */
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
+}
+
+.border {
+  border-radius: var(--border-rad);
+}
+
+.border-orange {
+  border-radius: var(--border-rad);
+  border: solid var(--orange) 1px 
+}
+
+.btn-outline-warning {
+  border-color: var(--orange) !important;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--orange);
+}
+
+.error {
+  color: var(--error);
 }

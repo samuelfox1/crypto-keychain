@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import PageProvider from './Context/PageContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
+
+import { AppProvider } from './Context';
+import App from './Components/App';
+import reportWebVitals from './reportWebVitals';
+
+import './Components/App/App.scss';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <PageProvider>
+    <AppProvider>
       <App />
-    </PageProvider>
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
