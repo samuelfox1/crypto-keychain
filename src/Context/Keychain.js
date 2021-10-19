@@ -16,9 +16,12 @@ export const KeychainProvider = ({ children }) => {
         items: []
     })
 
-    useEffect(() => {
-        if (AppComponent.key === 'Keychain') updateKeychainComponent(defaultKey)
-    }, [AppComponent])
+    /**
+     * reset default layout when tab is clicked
+     useEffect(() => {
+         if (AppComponent.key === 'Keychain') updateKeychainComponent(defaultKey)
+        }, [AppComponent])
+    */
 
     const clearKeychainData = () => setKeychainData({ name: '', items: [] })
 
