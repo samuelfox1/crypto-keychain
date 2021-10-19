@@ -5,16 +5,8 @@ import KeychainItem from './KeychainItem'
 
 export default function DefaultLayout() {
 
-    const [displayForm, setDisplayForm] = useState(false)
-    const { keychainData, updateKeychainComponent, } = useContext(KeychainContext)
+    const { keychainData } = useContext(KeychainContext)
     const { name, items } = keychainData
-
-    const toggleDisplayForm = () => {
-        if (!displayForm) updateKeychainComponent('addKeychainItemForm')
-        else updateKeychainComponent('')
-
-        setDisplayForm(!displayForm)
-    }
 
     return (
         <>
@@ -29,17 +21,6 @@ export default function DefaultLayout() {
                     <Container>
                         {items.map(({ name, value }, idx) => <KeychainItem key={idx} id={idx} name={name} value={value} />)}
                     </Container>
-                </Col>
-            </Row>
-            <Row>
-                <Col xs={12} className="d-flex justify-content-end">
-                    <Button
-                        className="my-3"
-                        variant="outline-warning text-dark"
-                        onClick={toggleDisplayForm}
-                    >
-                        {displayForm ? 'add item' : 'cancel'}
-                    </Button>
                 </Col>
             </Row>
         </>
