@@ -1,7 +1,7 @@
-import { CreatePassword } from "./CreatePassword";
-import { getUserPassword } from './CreateKeychain'
+import { createPassword } from "./createPassword";
+import { getUserPassword } from './createKeychain'
 
 export {
-    CreatePassword,
+    createPassword,
     getUserPassword
 }
