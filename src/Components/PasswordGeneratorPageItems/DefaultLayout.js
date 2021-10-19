@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap'
-import { CreatePassword } from '../../Utilty'
+import { createPassword } from '../../Utilty'
 
 export default function DefaultLayout() {
 
@@ -109,7 +109,7 @@ export default function DefaultLayout() {
 
         setDisplayedButton(btnOptions.loadingBtn())
 
-        let interval = setInterval(() => setPwText(CreatePassword(config)), 100)
+        let interval = setInterval(() => setPwText(createPassword(config)), 100)
 
         setTimeout(() => {
             clearInterval(interval)
@@ -178,8 +178,8 @@ export default function DefaultLayout() {
                                 as="textarea"
                                 rows={textAreaRows}
                                 size="sm"
-                                placeholder={pwText}
-                                disabled
+                                value={pwText}
+                                // disabled
                                 style={{ resize: "none" }}
                             />
                         </Form.Group>
