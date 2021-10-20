@@ -23,18 +23,6 @@ const generatePasswordString = ({ values, length }) => {
     return generatePasswordString({ values, length });
 }
 
-// export const focusAndCopyToCb = (el) => {
-//     const textVal = el.text().trim()
-//     if (!textVal) return
-//     el.select() && el.focus();
-//     copyToCb(textVal)
-// };
-
-// export const copyToCb = (text) => {
-//     navigator.clipboard.writeText(text)
-//         .then(() => { });
-// }
-
 const defaultConfig = {
     values: [
         "number",
