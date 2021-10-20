@@ -17,33 +17,40 @@ export default function Keychain() {
     console.log('rendering: DefaultLayout')
 
     return (
-        <Container className="my-5 border">
+        <Container>
             <Row className="justify-content-center">
-                <Col xs={10} md={4} >
-                    <h1>{name}</h1>
+                <Col xs={11} md={6} className="shadow border-orange p-3">
+
+                    <Row>
+                        <Col>
+                            <h2>Keychain: {name}</h2>
+                        </Col>
+                    </Row>
+
+                    <Row className="justify-content-center my-3" >
+                        <Col>
+                            {items.map(({ name, value }, idx) => <KeychainItem key={idx} id={idx} name={name} value={value} />)}
+                            <hr />
+
+                            {KeychainComponent}
+
+                        </Col>
+                    </Row>
+
+                    <Row className="px-0">
+                        <Col className="d-flex justify-content-end px-0">
+                            <Button
+                                className="mb-3 mx-3"
+                                variant="outline-warning text-dark"
+                                onClick={toggleDisplayForm}
+                            >
+                                {displayForm ? 'cancel' : 'add item'}
+                            </Button>
+                        </Col>
+                    </Row>
 
                 </Col>
             </Row>
-            <Row className="justify-content-center mb-5" >
-                <Col xs={10} md={4} className="border-orange">
-                    <Container className=" pt-1 px-3">
-                        {items.map(({ name, value }, idx) => <KeychainItem key={idx} id={idx} name={name} value={value} />)}
-                        {KeychainComponent}
-                    </Container>
-                </Col>
-            </Row>
-            <Row>
-                <Col xs={12} className="d-flex justify-content-end">
-                    <Button
-                        className="my-3"
-                        variant="outline-warning text-dark"
-                        onClick={toggleDisplayForm}
-                    >
-                        {displayForm ? 'cancel' : 'add item'}
-                    </Button>
-                </Col>
-            </Row>
-
-        </Container >
+        </Container>
     )
 }

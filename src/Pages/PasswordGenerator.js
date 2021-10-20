@@ -136,57 +136,64 @@ export default function PasswordGenerator() {
     return (
         <Container className="my-5">
             <Row className="justify-content-center">
-                <Col xs={11} md={4} >
-                    <h2>Password Generator</h2>
-                    <ol>
-                        <li><p>select characters</p></li>
-                        <li><p>select length</p></li>
-                        <li><p>click generate</p></li>
-                    </ol>
+                <Col xs={11} md={6} className="shadow border-orange p-3" >
 
-                </Col>
-            </Row>
-            <Row className="justify-content-center" >
-                <Col xs={10} md={4} className="border-orange">
-                    <Form className='mb-3'>
-                        <Form.Group className="my-3" controlId="exampleForm.ControlInput1">
-                            {Array.from(Object.entries(checkBox)).map((key) => {
-                                const { id, type, label, checked } = key[1]
-                                return < Form.Check
-                                    className="mb-1"
-                                    key={id}
-                                    type={type}
-                                    id={id}
-                                    label={label}
-                                    checked={checked}
-                                    onChange={handleCheckboxChange}
-                                />
-                            })}
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>length: {pwLength.value}</Form.Label>
-                            <Form.Range
-                                min={pwLength.min}
-                                max={pwLength.max}
-                                value={pwLength.value}
-                                onChange={handleRangeChange}
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Control
-                                className="text-center"
-                                as="textarea"
-                                rows={textAreaRows}
-                                size="sm"
-                                value={pwText}
-                                // disabled
-                                style={{ resize: "none" }}
-                            />
-                        </Form.Group>
+                    <Row>
+                        <Col>
+                            <h2>Password Generator</h2>
+                            <ol>
+                                <li><p>select characters</p></li>
+                                <li><p>select length</p></li>
+                                <li><p>click generate</p></li>
+                            </ol>
 
-                        {displayedButton}
+                        </Col>
+                    </Row>
 
-                    </Form>
+                    <Row className="border mx-1">
+                        <Col>
+                            <Form className='mb-3'>
+                                <Form.Group className="my-3" controlId="exampleForm.ControlInput1">
+                                    {Array.from(Object.entries(checkBox)).map((key) => {
+                                        const { id, type, label, checked } = key[1]
+                                        return < Form.Check
+                                            className="mb-1"
+                                            key={id}
+                                            type={type}
+                                            id={id}
+                                            label={label}
+                                            checked={checked}
+                                            onChange={handleCheckboxChange}
+                                        />
+                                    })}
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>length: {pwLength.value}</Form.Label>
+                                    <Form.Range
+                                        min={pwLength.min}
+                                        max={pwLength.max}
+                                        value={pwLength.value}
+                                        onChange={handleRangeChange}
+                                    />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                    <Form.Control
+                                        className="text-center"
+                                        as="textarea"
+                                        rows={textAreaRows}
+                                        size="sm"
+                                        value={pwText}
+                                        // disabled
+                                        style={{ resize: "none" }}
+                                    />
+                                </Form.Group>
+
+                                {displayedButton}
+
+                            </Form>
+                        </Col>
+                    </Row>
+
                 </Col>
             </Row>
         </Container >
