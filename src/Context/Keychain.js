@@ -8,6 +8,7 @@ export const KeychainProvider = ({ children }) => {
 
     const defaultKey = 'DefaultLayout'
     const defaultComponenet = <DefaultLayout key={defaultKey} />
+    const [displayForm, setDisplayForm] = useState(false)
 
     const [KeychainComponent, setKeychainComponent] = useState()
     const { AppComponent } = useContext(AppContext)
@@ -34,13 +35,16 @@ export const KeychainProvider = ({ children }) => {
         switch (componentName) {
             case defaultKey:
                 setKeychainComponent(defaultComponenet)
+                setDisplayForm(false)
                 break;
 
             case 'addKeychainItemForm':
                 setKeychainComponent(<AddItemForm key={componentName} />)
+                setDisplayForm(true)
                 break;
 
             default:
+                setKeychainComponent(null)
                 break;
         }
     }
@@ -51,6 +55,9 @@ export const KeychainProvider = ({ children }) => {
         <KeychainContext.Provider value={{
             KeychainComponent,
             updateKeychainComponent,
+
+            displayForm,
+            setDisplayForm,
 
             clearKeychainData,
             deleteKeychainItem,

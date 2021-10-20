@@ -5,16 +5,13 @@ import { KeychainContext } from '../Context'
 
 export default function Keychain() {
 
-    const [displayForm, setDisplayForm] = useState(false)
 
-    const { keychainData, KeychainComponent, updateKeychainComponent, } = useContext(KeychainContext)
+    const { keychainData, KeychainComponent, updateKeychainComponent, displayForm, setDisplayForm } = useContext(KeychainContext)
     const { name, items } = keychainData
 
     const toggleDisplayForm = () => {
         if (!displayForm) updateKeychainComponent('addKeychainItemForm')
-        else updateKeychainComponent('DefaultLayout')
-
-        setDisplayForm(!displayForm)
+        else updateKeychainComponent()
     }
 
     console.log('rendering: DefaultLayout')
