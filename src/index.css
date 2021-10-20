@@ -4,6 +4,8 @@
   --orange: rgb(242, 169, 0);
   --border-rad: .5em;
   --error: rgb(242, 97, 0);
+
+  --shadowDefault: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 body {
@@ -35,8 +37,16 @@ div#root {
   monospace;
 }
 
+.shadow {
+  border-radius: var(--border-rad);
+}
+
 .border {
   border-radius: var(--border-rad);
+}
+
+hr {
+  color: var(--error);
 }
 
 .border-orange {
@@ -50,6 +60,11 @@ div#root {
 
 .btn-outline-warning:hover {
   background-color: var(--orange);
+}
+
+button:hover {
+  box-shadow: var(--shadowDefault);
+  transform: scale(1.05);
 }
 
 .error {
