@@ -62,9 +62,16 @@ hr {
   background-color: var(--orange);
 }
 
-button:hover {
+button:hover, svg:hover {
   box-shadow: var(--shadowDefault);
   transform: scale(1.05);
+}
+svg path {
+  background-color: rgba(255, 255, 255, 0);
+}
+svg:hover {
+  transform: scale(1.5);
+
 }
 
 .error {
