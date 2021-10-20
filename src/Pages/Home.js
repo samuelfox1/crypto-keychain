@@ -12,9 +12,9 @@ export default function Home() {
     return (
         <Container className="my-5">
             {HomeComponent}
-            <Row className="mt-5">
-                <h2 className="text-center">new features coming soon</h2>
-                <h6 className="text-center">(checkout the password generator!)</h6>
+            <Row className="mt-2 text-center">
+                <h4> new features coming soon</h4>
+                <h6><small>~ checkout the password generator!</small></h6>
             </Row>
         </Container >
     )
