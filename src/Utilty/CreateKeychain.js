@@ -12,8 +12,7 @@ export const getLocalStorage = (keychainName, pw) => {
     if (!keychainName) return console.log('no chain name selected');
 
     const existingData = localStorage.getItem(`${keyBase}-${keychainName}`);
-    console.log('here', existingData)
-    if (pw === null || !existingData) return console.log('pw is null or existing data undefined');
+    if (!existingData) return console.log('missing chain data, please load from backup');
 
     try {
 
