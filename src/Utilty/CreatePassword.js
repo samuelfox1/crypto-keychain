@@ -23,20 +23,17 @@ const generatePasswordString = ({ values, length }) => {
     return generatePasswordString({ values, length });
 }
 
-// export const focusAndCopyToCb = (el) => {
-//     const textVal = el.text().trim()
-//     if (!textVal) return
-//     el.select() && el.focus();
-//     copyToCb(textVal)
-// };
+const defaultConfig = {
+    values: [
+        "number",
+        "special",
+        "lowercase",
+        "uppercase"
+    ],
+    length: 128
+}
 
-// export const copyToCb = (text) => {
-//     navigator.clipboard.writeText(text)
-//         .then(() => { });
-// }
-
-
-export const generatePassword = (config) => (
+export const createPassword = (config = defaultConfig) => (
     // validate there are selected values & a password length before calling
     config.values.length
     && config.length
