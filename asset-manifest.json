@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/crypto-keychain/static/css/main.210477ac.chunk.css",
-    "main.js": "/crypto-keychain/static/js/main.5de28b46.chunk.js",
-    "main.js.map": "/crypto-keychain/static/js/main.5de28b46.chunk.js.map",
-    "runtime-main.js": "/crypto-keychain/static/js/runtime-main.a1b60c0e.js",
-    "runtime-main.js.map": "/crypto-keychain/static/js/runtime-main.a1b60c0e.js.map",
+    "main.css": "/crypto-keychain/static/css/main.8641b9f9.chunk.css",
+    "main.js": "/crypto-keychain/static/js/main.a7523624.chunk.js",
+    "main.js.map": "/crypto-keychain/static/js/main.a7523624.chunk.js.map",
+    "runtime-main.js": "/crypto-keychain/static/js/runtime-main.5f14d2f0.js",
+    "runtime-main.js.map": "/crypto-keychain/static/js/runtime-main.5f14d2f0.js.map",
     "static/css/2.c1256375.chunk.css": "/crypto-keychain/static/css/2.c1256375.chunk.css",
-    "static/js/2.7f2ce867.chunk.js": "/crypto-keychain/static/js/2.7f2ce867.chunk.js",
-    "static/js/2.7f2ce867.chunk.js.map": "/crypto-keychain/static/js/2.7f2ce867.chunk.js.map",
-    "static/js/3.d4d8a8e2.chunk.js": "/crypto-keychain/static/js/3.d4d8a8e2.chunk.js",
-    "static/js/3.d4d8a8e2.chunk.js.map": "/crypto-keychain/static/js/3.d4d8a8e2.chunk.js.map",
+    "static/js/2.86b0811b.chunk.js": "/crypto-keychain/static/js/2.86b0811b.chunk.js",
+    "static/js/2.86b0811b.chunk.js.map": "/crypto-keychain/static/js/2.86b0811b.chunk.js.map",
+    "static/js/3.79c543c6.chunk.js": "/crypto-keychain/static/js/3.79c543c6.chunk.js",
+    "static/js/3.79c543c6.chunk.js.map": "/crypto-keychain/static/js/3.79c543c6.chunk.js.map",
     "index.html": "/crypto-keychain/index.html",
     "static/css/2.c1256375.chunk.css.map": "/crypto-keychain/static/css/2.c1256375.chunk.css.map",
-    "static/css/main.210477ac.chunk.css.map": "/crypto-keychain/static/css/main.210477ac.chunk.css.map",
-    "static/js/2.7f2ce867.chunk.js.LICENSE.txt": "/crypto-keychain/static/js/2.7f2ce867.chunk.js.LICENSE.txt"
+    "static/css/main.8641b9f9.chunk.css.map": "/crypto-keychain/static/css/main.8641b9f9.chunk.css.map",
+    "static/js/2.86b0811b.chunk.js.LICENSE.txt": "/crypto-keychain/static/js/2.86b0811b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a1b60c0e.js",
+    "static/js/runtime-main.5f14d2f0.js",
     "static/css/2.c1256375.chunk.css",
-    "static/js/2.7f2ce867.chunk.js",
-    "static/css/main.210477ac.chunk.css",
-    "static/js/main.5de28b46.chunk.js"
+    "static/js/2.86b0811b.chunk.js",
+    "static/css/main.8641b9f9.chunk.css",
+    "static/js/main.a7523624.chunk.js"
   ]
 }
