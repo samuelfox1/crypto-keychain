@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { KeychainItem } from '../Components/KeychainPageItems'
 import { KeychainContext } from '../Context'
@@ -6,7 +6,7 @@ import { KeychainContext } from '../Context'
 export default function Keychain() {
 
 
-    const { keychainData, KeychainComponent, updateKeychainComponent, displayForm, setDisplayForm } = useContext(KeychainContext)
+    const { keychainData, KeychainComponent, updateKeychainComponent, displayForm } = useContext(KeychainContext)
     const { name, items } = keychainData
 
     const toggleDisplayForm = () => {

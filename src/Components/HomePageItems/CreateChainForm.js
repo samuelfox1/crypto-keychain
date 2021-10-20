@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
 import { AppContext, HomeContext, KeychainContext } from '../../Context'
-import { setLocalStorage, getLocalStorage, getUserPassword } from '../../Utilty/createKeychain'
+import { setLocalStorage } from '../../Utilty/createKeychain'
 
 export default function CreateChain() {
 

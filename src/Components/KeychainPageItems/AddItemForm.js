@@ -26,7 +26,7 @@ export default function AddItemForm() {
         if (!e) return
         e.preventDefault()
         console.log(inputs)
-        const { name, items } = keychainData
+        const { name } = keychainData
 
         const pw = getUserPassword()
         if (pw === null) return

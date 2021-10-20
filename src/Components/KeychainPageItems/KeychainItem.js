@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Col, Row, Form, Button } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
 import { FaEye, FaEyeSlash, FaTrashAlt, FaCopy } from "react-icons/fa";
 import { KeychainContext } from '../../Context';
 import { copyToClipboard } from '../../Utilty';

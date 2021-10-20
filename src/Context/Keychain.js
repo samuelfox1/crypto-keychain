@@ -1,5 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import { AppContext } from '.';
+import React, { createContext, useState } from 'react';
 import { AddItemForm } from '../Components/KeychainPageItems';
 
 export const KeychainContext = createContext()
@@ -9,7 +8,6 @@ export const KeychainProvider = ({ children }) => {
     const [displayForm, setDisplayForm] = useState(false)
 
     const [KeychainComponent, setKeychainComponent] = useState()
-    const { AppComponent } = useContext(AppContext)
     const [keychainData, setKeychainData] = useState({
         name: '',
         items: []

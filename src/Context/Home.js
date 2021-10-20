@@ -12,7 +12,7 @@ export const HomeProvider = ({ children }) => {
 
     useEffect(() => {
         if (AppComponent.key === 'Home') updateHomeComponent(defaultKey)
-    }, [AppComponent])
+    }, [AppComponent, defaultKey])
 
     const updateHomeComponent = (componentName) => {
         // setTimeout(() => {
