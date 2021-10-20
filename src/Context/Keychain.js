@@ -45,6 +45,7 @@ export const KeychainProvider = ({ children }) => {
 
             default:
                 setKeychainComponent(null)
+                setDisplayForm(false)
                 break;
         }
     }

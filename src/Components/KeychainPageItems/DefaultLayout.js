@@ -13,7 +13,6 @@ export default function DefaultLayout() {
             <Row className="justify-content-center">
                 <Col xs={10} md={4} >
                     <h1>{name}</h1>
-
                 </Col>
             </Row>
             <Row className="justify-content-center mb-5" >
