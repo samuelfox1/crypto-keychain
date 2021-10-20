@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Col, Form, Row, Button } from 'react-bootstrap'
-import { createPassword } from '../../Utilty'
+import { KeychainContext } from '../../Context'
+import { createPassword, getUserPassword } from '../../Utilty'
+import { getLocalStorage, setLocalStorage } from '../../Utilty/createKeychain'
 
 export default function AddItemForm() {
 
     const [validInputs, setValidInputs] = useState(false)
+    const { keychainData, setKeychainData, updateKeychainComponent } = useContext(KeychainContext)
     const [inputs, setInputs] = useState({
+        name: '',
+        value: ''
+    })
+
+    const clearInputs = () => setInputs({
         name: '',
         value: ''
     })
@@ -19,8 +27,22 @@ export default function AddItemForm() {
         setInputs({ ...inputs, value: createPassword() })
     }
 
-    const handleAddKeychainItem = () => {
+    const handleAddKeychainItem = (e) => {
+        e.preventDefault()
         console.log(inputs)
+        const { name, items } = keychainData
+
+        const pw = getUserPassword()
+        if (pw === null) return
+        if (!pw) return handleAddKeychainItem()
+
+        const arr = getLocalStorage(name, pw)
+        if (!arr) return handleAddKeychainItem()
+        const updatedArr = [inputs, ...arr]
+        setLocalStorage(keychainData.name, pw, updatedArr)
+        setKeychainData({ ...keychainData, items: updatedArr })
+        clearInputs()
+        updateKeychainComponent()
     }
 
     useEffect(() => {
@@ -28,20 +50,26 @@ export default function AddItemForm() {
         if (!validInputs) setValidInputs(true)
     }, [inputs])
 
+    console.log('rendering addItemForm')
+
     return (
         <Row>
             <Col className="p-0 m-0">
-                <Form>
+                <hr />
+                <h6 className="mb-3">Add item</h6>
+                <Form onSubmit={handleAddKeychainItem}>
+
                     <Form.Group className="mb-3" controlId="keychainItemName">
-                        <Form.Label>name</Form.Label>
+                        <Form.Label className="mb-0">name</Form.Label>
                         <Form.Control type="text" name='name' value={inputs.name} onChange={handleInputChange} />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="keychainItemValue">
-                        <Form.Label>value</Form.Label>
+
+                    <Form.Group className="mb-1" controlId="keychainItemValue">
+                        <Form.Label className="mb-0">value</Form.Label>
                         <Form.Control
                             className="text-center"
                             as="textarea"
-                            rows={8}
+                            rows={6}
                             name='value'
                             size="sm"
                             value={inputs.value}
@@ -49,25 +77,27 @@ export default function AddItemForm() {
                             onChange={handleInputChange}
                         />
                     </Form.Group>
-                    <Form.Group className="d-flex justify-content-center mb-3">
+
+                    <Form.Group className="d-flex justify-content-end mb-3">
                         <Button className="p-0 px-1" variant="outline-warning text-dark" size="sm" onClick={handleSuggestPassword}>
                             suggest password?
                         </Button>
                     </Form.Group>
+
                     <Form.Group className="d-flex justify-content-end">
                         {validInputs
                             ? <Button
+                                type="submit"
                                 className="my-3"
                                 variant="outline-warning text-dark"
-                                onClick={(inputs) => handleAddKeychainItem(inputs)}
                             >
                                 add item
                             </Button>
                             : <Button disabled className="my-3" variant="outline-warning text-dark" >add item</Button>
                         }
                     </Form.Group>
-                </Form>
 
+                </Form>
             </Col>
         </Row>
     )

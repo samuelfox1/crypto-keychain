@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap'
-import { createPassword } from '../../Utilty'
+import { createPassword } from '../Utilty'
 
-export default function DefaultLayout() {
+export default function PasswordGenerator() {
 
     const [textAreaRows, setTextAreaRows] = useState(3)
     const [pwLength, setPwLength] = useState({

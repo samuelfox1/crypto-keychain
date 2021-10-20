@@ -63,7 +63,7 @@ export default function NavTabs() {
             className=" justify-content-end"
         >
             <Tab eventKey="Home" title="Home" />
-            <Tab eventKey="DefaultLayout" title="password gen" />
+            <Tab eventKey="PasswordGenerator" title="password gen" />
             {keychainTab}
         </Tabs>
     );
