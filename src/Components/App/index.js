@@ -15,11 +15,11 @@ function App() {
     <>
       <KeychainProvider>
         <CustomNav />
-        <Container className="pb-1">
-          <HomeProvider>
-            {AppComponent}
-          </HomeProvider>
-        </Container>
+        <HomeProvider>
+
+          {AppComponent}
+
+        </HomeProvider>
         <Footer />
       </KeychainProvider>
     </>
