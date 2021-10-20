@@ -1,40 +1,65 @@
 import React, { useContext, useState } from 'react'
-import { Col, Row } from 'react-bootstrap';
-import { FaEye, FaEyeSlash, FaTrashAlt } from "react-icons/fa";
+import { Col, Row, Form, Button } from 'react-bootstrap';
+import { FaEye, FaEyeSlash, FaTrashAlt, FaCopy } from "react-icons/fa";
 import { KeychainContext } from '../../Context';
+import { copyToClipboard } from '../../Utilty';
 
 
 export default function KeychainItem({ name, value, id }) {
 
-    const [view, setView] = useState(false)
+    const [viewKeychainItem, setViewKeychainItem] = useState(false)
+    const [displayCopiedMessage, setDisplayCopiedMessage] = useState(false)
 
     const { deleteKeychainItem } = useContext(KeychainContext)
 
-    const toggleView = () => {
-        setView(!view)
+    const handleViewKeychainItemValue = () => {
+        viewKeychainItem && setDisplayCopiedMessage(false)
+        setViewKeychainItem(!viewKeychainItem)
     }
 
-    return (
-        <>
-            <Row className="m-2 border p-1">
-                <Col className="d-flex justify-content-between align-items-center" xs={12}>
-                    <FaTrashAlt onClick={() => deleteKeychainItem(id)} />
-                    <p>{name}</p>
-                    {view
-                        ? <FaEyeSlash onClick={toggleView} />
-                        : <FaEye onClick={toggleView} />
-                    }
-                </Col>
-                <Col xs={12} className="text-center">
+    const handleCopyToClipboard = () => {
+        if (displayCopiedMessage) return
 
-                    {view &&
-                        <>
-                            <hr className="m-1" />
-                            {value}
-                        </>
-                    }
-                </Col>
-            </Row>
-        </>
+        copyToClipboard(value)
+        setDisplayCopiedMessage(true)
+    }
+
+
+    return (
+        <Row className="border shadow-sm flex-column m-0 mb-3">
+            <Col className="d-flex justify-content-between align-items-center py-1">
+                <FaTrashAlt onClick={() => deleteKeychainItem(id)} />
+                <p>{name}</p>
+                {viewKeychainItem
+                    ? <FaEyeSlash onClick={handleViewKeychainItemValue} />
+                    : <FaEye onClick={handleViewKeychainItemValue} />
+                }
+            </Col>
+            <Col className="text-center p-0">
+
+                {viewKeychainItem &&
+                    <Form>
+                        <Form.Group className="mx-2 mb-3" controlId="keychainItemValue">
+                            <Form.Control
+                                className="text-center"
+                                as="textarea"
+                                rows={6}
+                                name='value'
+                                size="sm"
+                                value={value}
+                                disabled
+                                style={{ resize: "none" }}
+                            />
+                        </Form.Group>
+                        <Form.Group className="d-flex justify-content-end m-0">
+                            <FaCopy
+                                className="m-2"
+                                onClick={handleCopyToClipboard}
+                            />
+                        </Form.Group>
+                    </Form>
+                }
+            </Col>
+        </Row>
     )
 }
