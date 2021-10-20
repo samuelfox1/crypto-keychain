@@ -13,11 +13,6 @@ export default function AddItemForm() {
         value: ''
     })
 
-    const clearInputs = () => setInputs({
-        name: '',
-        value: ''
-    })
-
     const handleInputChange = (e) => {
         const { name, value } = e.target
         setInputs({ ...inputs, [name]: value })
@@ -28,6 +23,7 @@ export default function AddItemForm() {
     }
 
     const handleAddKeychainItem = (e) => {
+        if (!e) return
         e.preventDefault()
         console.log(inputs)
         const { name, items } = keychainData
@@ -41,7 +37,7 @@ export default function AddItemForm() {
         const updatedArr = [inputs, ...arr]
         setLocalStorage(keychainData.name, pw, updatedArr)
         setKeychainData({ ...keychainData, items: updatedArr })
-        clearInputs()
+        setInputs({ name: '', value: '' })
         updateKeychainComponent()
     }
 
@@ -53,13 +49,12 @@ export default function AddItemForm() {
     console.log('rendering addItemForm')
 
     return (
-        <Row>
-            <Col className="p-0 m-0">
-                <hr />
-                <h6 className="mb-3">Add item</h6>
+        <Row className="border shadow flex-column m-0 mb-3">
+            <Col className="p-3">
+                <h3 className="mb-1">Add item</h3>
                 <Form onSubmit={handleAddKeychainItem}>
 
-                    <Form.Group className="mb-3" controlId="keychainItemName">
+                    <Form.Group className="mb-1" controlId="keychainItemName">
                         <Form.Label className="mb-0">name</Form.Label>
                         <Form.Control type="text" name='name' value={inputs.name} onChange={handleInputChange} />
                     </Form.Group>
@@ -78,22 +73,22 @@ export default function AddItemForm() {
                         />
                     </Form.Group>
 
-                    <Form.Group className="d-flex justify-content-end mb-3">
+                    <Form.Group className="d-flex justify-content-end">
                         <Button className="p-0 px-1" variant="outline-warning text-dark" size="sm" onClick={handleSuggestPassword}>
                             suggest password?
                         </Button>
                     </Form.Group>
 
-                    <Form.Group className="d-flex justify-content-end">
+                    <hr />
+                    <Form.Group className="d-flex justify-content-end pb-3">
                         {validInputs
                             ? <Button
                                 type="submit"
-                                className="my-3"
                                 variant="outline-warning text-dark"
                             >
                                 add item
                             </Button>
-                            : <Button disabled className="my-3" variant="outline-warning text-dark" >add item</Button>
+                            : <Button disabled variant="outline-warning text-dark" >add item</Button>
                         }
                     </Form.Group>
 
