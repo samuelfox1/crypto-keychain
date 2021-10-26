@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
 import { AppContext, HomeContext, KeychainContext } from '../../Context'
-import { setLocalStorage } from '../../Utilty/createKeychain'
+import { setLocalStorage } from '../../Utilty'
 
 export default function CreateChain() {
 
@@ -66,10 +66,10 @@ export default function CreateChain() {
 
     return (
         <Row className="justify-content-center">
-            <Col xs={10} md={6} className="border-orange shadow p-4">
+            <Col xs={11} md={6} className="border-orange shadow p-4">
                 <Row >
                     <Col  >
-                        <h1>Create new chain</h1>
+                        <h1>Add new chain</h1>
                         <ol>
                             <li><p >enter a name</p></li>
                             <li><p >enter a password</p></li>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Col, Form, Row, Button } from 'react-bootstrap'
 import { KeychainContext } from '../../Context'
 import { createPassword, getUserPassword } from '../../Utilty'
-import { getLocalStorage, setLocalStorage } from '../../Utilty/createKeychain'
+import { getLocalStorage, setLocalStorage } from '../../Utilty'
 
 export default function AddItemForm() {
 
@@ -27,12 +27,14 @@ export default function AddItemForm() {
         e.preventDefault()
         console.log(inputs)
         const { name } = keychainData
+        console.log('here', name)
 
         const pw = getUserPassword()
         if (pw === null) return
         if (!pw) return handleAddKeychainItem()
 
         const arr = getLocalStorage(name, pw)
+        console.log('here', arr)
         if (!arr) return handleAddKeychainItem()
         const updatedArr = [inputs, ...arr]
         setLocalStorage(keychainData.name, pw, updatedArr)
