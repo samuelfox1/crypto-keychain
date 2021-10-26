@@ -28,7 +28,7 @@ export default function KeychainItem({ name, value, id }) {
     return (
         <Row className="border shadow-sm flex-column m-0 mb-3">
             <Col className="d-flex justify-content-between align-items-center py-1">
-                <FaTrashAlt onClick={() => deleteKeychainItem(id)} />
+                <FaTrashAlt onClick={() => deleteKeychainItem(name, id)} />
                 <p>{name}</p>
                 {viewKeychainItem
                     ? <FaEyeSlash onClick={handleViewKeychainItemValue} />
