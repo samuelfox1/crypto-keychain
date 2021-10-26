@@ -10,15 +10,16 @@ export default function AccessExistingChain() {
     const { setKeychainData } = useContext(KeychainContext)
 
     const handleAccessChain = (keychainName) => {
-        console.log(keychainName)
+
         const pw = getUserPassword()
         if (pw === null) return
         if (!pw) handleAccessChain(keychainName)
+
         const data = getLocalStorage(keychainName, pw)
-        console.log(data)
+        // if data is undefined, password was wrong
+        if (!data) return
 
         setKeychainData({ name: keychainName, items: data })
-
         updateAppComponent('Keychain')
     }
 
@@ -38,8 +39,8 @@ export default function AccessExistingChain() {
                 <Row>
                     <Col className="mx-2">
 
-                        {existingChains.length &&
-                            existingChains.map((chain, idx) => <Button
+                        {existingChains.length
+                            ? existingChains.map((chain, idx) => <Button
                                 variant="outline-warning text-dark"
                                 className="w-100 my-3"
                                 name={chain}
@@ -48,7 +49,9 @@ export default function AccessExistingChain() {
                             >
                                 {chain}
                             </Button>
-                            )}
+                            )
+                            : <p>no chains created</p>
+                        }
 
                     </Col>
                 </Row>
