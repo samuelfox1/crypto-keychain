@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
 import { AppContext, HomeContext, KeychainContext } from '../../Context'
-import { setLocalStorage } from '../../Utilty'
+import { getExistingChains, setLocalStorage } from '../../Utilty'
 
 export default function CreateChain() {
 
+    const [existingChains] = useState(getExistingChains())
     const { updateAppComponent } = useContext(AppContext)
     const { setKeychainData } = useContext(KeychainContext)
     const { updateHomeComponent } = useContext(HomeContext)
@@ -42,6 +43,12 @@ export default function CreateChain() {
         if (!name) {
             // no name entered
             setErrorMessage({ name: 'please enter a name', pwlength: '', pwmatch: '' })
+            setValidFormInputs(false)
+            return
+        }
+        if (existingChains.indexOf(name) !== -1) {
+            // name is not unique
+            setErrorMessage({ name: 'please enter a unique name', pwlength: '', pwmatch: '' })
             setValidFormInputs(false)
             return
         }
