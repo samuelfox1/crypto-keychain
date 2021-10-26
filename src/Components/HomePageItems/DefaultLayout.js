@@ -27,7 +27,13 @@ export default function DefaultLayout() {
                         >
                             create new chain
                         </Button>
-                        <Button disabled variant="outline-warning text-dark" className="w-100 my-3">access existing chain</Button>
+                        <Button
+                            variant="outline-warning text-dark"
+                            className="w-100 my-3"
+                            onClick={() => updateHomeComponent('accessExistingChain')}
+                        >
+                            access existing chain
+                        </Button>
                         <Button disabled variant="outline-warning text-dark" className="w-100 my-3">load from backup</Button>
                     </Col>
                 </Row>
