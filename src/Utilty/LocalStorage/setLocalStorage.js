@@ -1,5 +1,5 @@
 import { AES } from "crypto-js/";
-import { keyBase } from './config'
+import { keyBase } from '../config'
 
 export const setLocalStorage = (keychainName, pw, arr) => {
     if (!keychainName || !pw) return
