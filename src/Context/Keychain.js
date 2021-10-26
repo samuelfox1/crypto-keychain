@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { AddItemForm } from '../Components/KeychainPageItems';
+import { getLocalStorage, getUserPassword, setLocalStorage } from '../Utilty';
 
 export const KeychainContext = createContext()
 
@@ -13,17 +14,23 @@ export const KeychainProvider = ({ children }) => {
         items: []
     })
 
-    /**
-     * reset default layout when tab is clicked
-     useEffect(() => {
-         if (AppComponent.key === 'Keychain') updateKeychainComponent(defaultKey)
-        }, [AppComponent])
-    */
-
     const clearKeychainData = () => setKeychainData({ name: '', items: [] })
 
-    const deleteKeychainItem = (id) => {
-        const filtered = keychainData.items.filter((_, idx) => id !== idx)
+    const deleteKeychainItem = (name, id) => {
+        let pw
+        while (!pw) {
+            pw = getUserPassword()
+            // when user clicks cancel
+            if (pw === null) return
+            // we'll get data back for this chain if password is correct
+            if (!getLocalStorage(keychainData.name, pw)) pw = ''
+        }
+
+        // final confirmation before delete
+        if (!window.confirm(`delete item: ${name} from keychain: ${keychainData.name}?`)) return
+
+        const filtered = keychainData.items.filter(item => item.id !== id)
+        setLocalStorage(keychainData.name, pw, filtered)
         setKeychainData({ ...keychainData, items: filtered })
     }
 

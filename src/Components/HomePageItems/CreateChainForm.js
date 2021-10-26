@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
 import { AppContext, HomeContext, KeychainContext } from '../../Context'
-import { setLocalStorage } from '../../Utilty/createKeychain'
+import { getExistingChains, setLocalStorage } from '../../Utilty'
 
 export default function CreateChain() {
 
+    const [existingChains] = useState(getExistingChains())
     const { updateAppComponent } = useContext(AppContext)
     const { setKeychainData } = useContext(KeychainContext)
     const { updateHomeComponent } = useContext(HomeContext)
@@ -45,6 +46,12 @@ export default function CreateChain() {
             setValidFormInputs(false)
             return
         }
+        if (existingChains.indexOf(name) !== -1) {
+            // name is not unique
+            setErrorMessage({ name: 'please enter a unique name', pwlength: '', pwmatch: '' })
+            setValidFormInputs(false)
+            return
+        }
 
         if (password.length < 8) {
             setErrorMessage({ ...errorMessage, name: '', pwlength: 'must be atleast 8 characters long', pwmatch: '' })
@@ -66,10 +73,10 @@ export default function CreateChain() {
 
     return (
         <Row className="justify-content-center">
-            <Col xs={10} md={6} className="border-orange shadow p-4">
+            <Col xs={11} md={6} className="border-orange shadow p-4">
                 <Row >
                     <Col  >
-                        <h1>Create new chain</h1>
+                        <h1>Add new chain</h1>
                         <ol>
                             <li><p >enter a name</p></li>
                             <li><p >enter a password</p></li>

@@ -1,12 +1,6 @@
 import { AES, enc, } from "crypto-js/";
-const keyBase = 'cryptoKC';
 
-export const getUserPassword = () => prompt('keychain access password');
-
-export const setLocalStorage = (keychainName, pw, arr) => {
-    if (!keychainName || !pw) return
-    localStorage.setItem(`${keyBase}-${keychainName}`, AES.encrypt(JSON.stringify(arr), pw).toString())
-};
+import { keyBase } from '../config'
 
 export const getLocalStorage = (keychainName, pw) => {
     if (!keychainName) return console.log('no chain name selected');
