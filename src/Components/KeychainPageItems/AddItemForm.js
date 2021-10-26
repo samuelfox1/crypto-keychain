@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { v4 as uuid } from 'uuid'
 import { Col, Form, Row, Button } from 'react-bootstrap'
 import { KeychainContext } from '../../Context'
 import { createPassword, getUserPassword } from '../../Utilty'
@@ -10,7 +11,8 @@ export default function AddItemForm() {
     const { keychainData, setKeychainData, updateKeychainComponent } = useContext(KeychainContext)
     const [inputs, setInputs] = useState({
         name: '',
-        value: ''
+        value: '',
+        id: uuid()
     })
 
     const handleInputChange = (e) => {

@@ -29,7 +29,7 @@ export default function Keychain() {
 
                     <Row className="justify-content-center my-3" >
                         <Col>
-                            {items.map(({ name, value }, idx) => <KeychainItem key={idx} id={idx} name={name} value={value} />)}
+                            {items.map(({ name, value, id }) => <KeychainItem key={id} id={id} name={name} value={value} />)}
                             <hr />
 
                             {KeychainComponent}
