@@ -14,7 +14,7 @@ export default function Keychain() {
         else updateKeychainComponent()
     }
 
-    console.log('rendering: DefaultLayout')
+    console.log('rendering: Keychain')
 
     return (
         <Container>
