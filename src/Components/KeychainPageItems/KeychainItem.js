@@ -8,20 +8,20 @@ import { copyToClipboard } from '../../Utilty';
 export default function KeychainItem({ name, value, id }) {
 
     const [viewKeychainItem, setViewKeychainItem] = useState(false)
-    const [displayCopiedMessage, setDisplayCopiedMessage] = useState(false)
+    const [copiedMessage, setCopiedMessage] = useState('')
 
     const { deleteKeychainItem } = useContext(KeychainContext)
 
     const handleViewKeychainItemValue = () => {
-        viewKeychainItem && setDisplayCopiedMessage(false)
+        viewKeychainItem && setCopiedMessage(false)
         setViewKeychainItem(!viewKeychainItem)
     }
 
-    const handleCopyToClipboard = () => {
-        if (displayCopiedMessage) return
+    const handleCopyToClipboard = (value) => {
+        // if (copiedMessage) return
 
         copyToClipboard(value)
-        setDisplayCopiedMessage(true)
+        setCopiedMessage('copied!')
     }
 
 
@@ -52,9 +52,10 @@ export default function KeychainItem({ name, value, id }) {
                             />
                         </Form.Group>
                         <Form.Group className="d-flex justify-content-end m-0">
+                            {copiedMessage}
                             <FaCopy
                                 className="m-2"
-                                onClick={handleCopyToClipboard}
+                                onClick={() => handleCopyToClipboard(value)}
                             />
                         </Form.Group>
                     </Form>
