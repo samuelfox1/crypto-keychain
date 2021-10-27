@@ -18,8 +18,6 @@ export default function KeychainItem({ name, value, id }) {
     }
 
     const handleCopyToClipboard = (value) => {
-        // if (copiedMessage) return
-
         copyToClipboard(value)
         setCopiedMessage('copied!')
     }

@@ -2,7 +2,8 @@ import { createPassword } from "./createPassword";
 import { getUserPassword } from './getUserPassword'
 import { copyToClipboard } from "./copyToClipboard";
 import { getExistingChains } from "./getExistingChains";
-import { getLocalStorage, setLocalStorage } from "./LocalStorage";
+import { getNewChainName } from "./renameKeychain";
+import { getLocalStorage, setLocalStorage, deleteKeychain } from "./LocalStorage";
 
 export {
     createPassword,
@@ -10,5 +11,7 @@ export {
     copyToClipboard,
     getExistingChains,
     getLocalStorage,
-    setLocalStorage
+    setLocalStorage,
+    getNewChainName,
+    deleteKeychain
 }
