@@ -98,6 +98,7 @@ export default function PasswordGenerator() {
         */
         const calculatedRows = Math.floor(value / 18)
         setTextAreaRows(calculatedRows || 1)
+        setDisplayedButton(btnOptions.activeBtn())
     }
 
     const handleGeneratePassword = () => {
@@ -130,6 +131,8 @@ export default function PasswordGenerator() {
         else setDisplayedButton(btnOptions.defaultBtn())
 
     }, [selectedValues])
+
+    const handlePwTextChange = () => { }
 
     console.log('rendering: DefaultLayout')
 
@@ -183,6 +186,7 @@ export default function PasswordGenerator() {
                                         rows={textAreaRows}
                                         size="sm"
                                         value={pwText}
+                                        onChange={handlePwTextChange}
                                         // disabled
                                         style={{ resize: "none" }}
                                     />

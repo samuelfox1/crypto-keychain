@@ -66,12 +66,16 @@ button:hover, svg:hover {
   box-shadow: var(--shadowDefault);
   transform: scale(1.05);
 }
-svg path {
-  background-color: rgba(255, 255, 255, 0);
+svg {
+  border-radius: .25em;
 }
 svg:hover {
   transform: scale(1.5);
+}
 
+.react-icons {
+  font-size: 2.5em;
+  border-radius: var(--border-rad);
 }
 
 .error {

@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react'
+import { FaConnectdevelop } from 'react-icons/fa'
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import { KeychainItem } from '../Components/KeychainPageItems'
+import { KeychainItem, KeychainSettings } from '../Components/KeychainPageItems'
 import { KeychainContext } from '../Context'
 
 export default function Keychain() {
 
 
-    const { keychainData, KeychainComponent, updateKeychainComponent, displayForm, setDisplayForm } = useContext(KeychainContext)
+    const { keychainData, KeychainComponent, updateKeychainComponent, displayForm } = useContext(KeychainContext)
+    const [displayChainSettings, setDisplayChainSettings] = useState(false)
     const { name, items } = keychainData
 
     const toggleDisplayForm = () => {
@@ -14,7 +16,11 @@ export default function Keychain() {
         else updateKeychainComponent()
     }
 
-    console.log('rendering: DefaultLayout')
+    const toggleDisplayChainOptions = () => {
+        setDisplayChainSettings(!displayChainSettings)
+    }
+
+    console.log('rendering: Keychain')
 
     return (
         <Container>
@@ -22,14 +28,19 @@ export default function Keychain() {
                 <Col xs={11} md={6} className="shadow border-orange p-3">
 
                     <Row>
-                        <Col>
-                            <h2>Keychain: {name}</h2>
+                        <Col className="d-flex justify-content-between align-items-center py-2 border">
+                            <h3 className="my-0">{name}</h3>
+                            <FaConnectdevelop
+                                className="react-icons"
+                                onClick={toggleDisplayChainOptions}
+                            />
                         </Col>
                     </Row>
+                    {displayChainSettings && <KeychainSettings />}
 
                     <Row className="justify-content-center my-3" >
                         <Col>
-                            {items.map(({ name, value }, idx) => <KeychainItem key={idx} id={idx} name={name} value={value} />)}
+                            {items.map(({ name, value, id }) => <KeychainItem key={id} id={id} name={name} value={value} />)}
                             <hr />
 
                             {KeychainComponent}

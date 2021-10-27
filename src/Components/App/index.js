@@ -1,6 +1,5 @@
 // import logo from './logo.svg';
 import React, { useContext } from 'react'
-import { Container } from 'react-bootstrap';
 import { AppContext, HomeProvider, KeychainProvider } from '../../Context/'
 import CustomNav from '../CustomNav'
 import Footer from '../Footer';

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { AppContext } from '.'
-import { DefaultLayout, CreateChainForm } from '../Components/HomePageItems'
+import { DefaultLayout, CreateChainForm, AccessExistingChain } from '../Components/HomePageItems'
 
 export const HomeContext = createContext()
 
@@ -12,7 +12,7 @@ export const HomeProvider = ({ children }) => {
 
     useEffect(() => {
         if (AppComponent.key === 'Home') updateHomeComponent(defaultKey)
-    }, [AppComponent])
+    }, [AppComponent, defaultKey])
 
     const updateHomeComponent = (componentName) => {
         // setTimeout(() => {
@@ -23,6 +23,10 @@ export const HomeProvider = ({ children }) => {
 
             case 'createChain':
                 setHomeComponent(<CreateChainForm key={componentName} />)
+                break;
+
+            case 'accessExistingChain':
+                setHomeComponent(<AccessExistingChain key={componentName} />)
                 break;
 
             default:

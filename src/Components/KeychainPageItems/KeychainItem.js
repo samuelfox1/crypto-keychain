@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Col, Row, Form, Button } from 'react-bootstrap';
+import { Col, Row, Form } from 'react-bootstrap';
 import { FaEye, FaEyeSlash, FaTrashAlt, FaCopy } from "react-icons/fa";
 import { KeychainContext } from '../../Context';
 import { copyToClipboard } from '../../Utilty';
@@ -8,27 +8,25 @@ import { copyToClipboard } from '../../Utilty';
 export default function KeychainItem({ name, value, id }) {
 
     const [viewKeychainItem, setViewKeychainItem] = useState(false)
-    const [displayCopiedMessage, setDisplayCopiedMessage] = useState(false)
+    const [copiedMessage, setCopiedMessage] = useState('')
 
     const { deleteKeychainItem } = useContext(KeychainContext)
 
     const handleViewKeychainItemValue = () => {
-        viewKeychainItem && setDisplayCopiedMessage(false)
+        viewKeychainItem && setCopiedMessage(false)
         setViewKeychainItem(!viewKeychainItem)
     }
 
-    const handleCopyToClipboard = () => {
-        if (displayCopiedMessage) return
-
+    const handleCopyToClipboard = (value) => {
         copyToClipboard(value)
-        setDisplayCopiedMessage(true)
+        setCopiedMessage('copied!')
     }
 
 
     return (
         <Row className="border shadow-sm flex-column m-0 mb-3">
             <Col className="d-flex justify-content-between align-items-center py-1">
-                <FaTrashAlt onClick={() => deleteKeychainItem(id)} />
+                <FaTrashAlt onClick={() => deleteKeychainItem(name, id)} />
                 <p>{name}</p>
                 {viewKeychainItem
                     ? <FaEyeSlash onClick={handleViewKeychainItemValue} />
@@ -52,9 +50,10 @@ export default function KeychainItem({ name, value, id }) {
                             />
                         </Form.Group>
                         <Form.Group className="d-flex justify-content-end m-0">
+                            {copiedMessage}
                             <FaCopy
                                 className="m-2"
-                                onClick={handleCopyToClipboard}
+                                onClick={() => handleCopyToClipboard(value)}
                             />
                         </Form.Group>
                     </Form>
