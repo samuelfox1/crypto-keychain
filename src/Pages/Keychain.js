@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { FaConnectdevelop } from 'react-icons/fa'
 import { Container, Row, Col, Button } from 'react-bootstrap'
-import { KeychainItem } from '../Components/KeychainPageItems'
+import { KeychainItem, KeychainSettings } from '../Components/KeychainPageItems'
 import { KeychainContext } from '../Context'
 
 export default function Keychain() {
 
 
     const { keychainData, KeychainComponent, updateKeychainComponent, displayForm } = useContext(KeychainContext)
-    const [displayChainOptions, setDisplayChainOptions] = useState(false)
+    const [displayChainSettings, setDisplayChainSettings] = useState(false)
     const { name, items } = keychainData
 
     const toggleDisplayForm = () => {
@@ -17,7 +17,7 @@ export default function Keychain() {
     }
 
     const toggleDisplayChainOptions = () => {
-        setDisplayChainOptions(!displayChainOptions)
+        setDisplayChainSettings(!displayChainSettings)
     }
 
     console.log('rendering: Keychain')
@@ -36,26 +36,7 @@ export default function Keychain() {
                             />
                         </Col>
                     </Row>
-                    {displayChainOptions && <Row className="py-3 border">
-                        <Col className=" col-6 d-flex">
-
-                            <h6>settings</h6>
-                        </Col>
-                        <Col className=" col-6 text-end">
-                            <Button
-                                className="mb-3"
-                                variant="outline-warning text-dark"
-                            >
-                                rename
-                            </Button>
-                            <Button
-                                className=""
-                                variant="outline-danger text-dark"
-                            >
-                                destroy
-                            </Button>
-                        </Col>
-                    </Row>}
+                    {displayChainSettings && <KeychainSettings />}
 
                     <Row className="justify-content-center my-3" >
                         <Col>

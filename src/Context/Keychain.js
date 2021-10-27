@@ -2,19 +2,16 @@ import React, { createContext, useState } from 'react';
 import { AddItemForm } from '../Components/KeychainPageItems';
 import { getLocalStorage, getUserPassword, setLocalStorage } from '../Utilty';
 
+const defaultKeychainData = { name: '', items: [] }
+
 export const KeychainContext = createContext()
 
 export const KeychainProvider = ({ children }) => {
 
     const [displayForm, setDisplayForm] = useState(false)
-
     const [KeychainComponent, setKeychainComponent] = useState()
-    const [keychainData, setKeychainData] = useState({
-        name: '',
-        items: []
-    })
-
-    const clearKeychainData = () => setKeychainData({ name: '', items: [] })
+    const [keychainData, setKeychainData] = useState(defaultKeychainData)
+    const resetKeychainData = () => setKeychainData(defaultKeychainData)
 
     const deleteKeychainItem = (name, id) => {
         let pw
@@ -27,7 +24,7 @@ export const KeychainProvider = ({ children }) => {
         }
 
         // final confirmation before delete
-        if (!window.confirm(`delete item: ${name} from keychain: ${keychainData.name}?`)) return
+        if (!window.confirm(`deleting ${name} from ${keychainData.name}, are you sure?`)) return
 
         const filtered = keychainData.items.filter(item => item.id !== id)
         setLocalStorage(keychainData.name, pw, filtered)
@@ -58,7 +55,7 @@ export const KeychainProvider = ({ children }) => {
             displayForm,
             setDisplayForm,
 
-            clearKeychainData,
+            resetKeychainData,
             deleteKeychainItem,
             setKeychainData,
             keychainData
