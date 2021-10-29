@@ -27,8 +27,6 @@ export const AppProvider = ({ children }) => {
         }, 100);
     }
 
-    console.log('rendering: AppProvider')
-
     return (
         <AppContext.Provider value={{ AppComponent, updateAppComponent }}>
             {children}

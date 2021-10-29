@@ -7,8 +7,6 @@ export default function Home() {
 
     const { HomeComponent } = useContext(HomeContext)
 
-    console.log('rendering: Home')
-
     return (
         <Container className="my-5">
             {HomeComponent}

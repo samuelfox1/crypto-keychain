@@ -134,8 +134,6 @@ export default function PasswordGenerator() {
 
     const handlePwTextChange = () => { }
 
-    console.log('rendering: DefaultLayout')
-
     return (
         <Container className="my-5">
             <Row className="justify-content-center">

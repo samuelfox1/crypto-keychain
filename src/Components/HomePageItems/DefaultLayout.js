@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from 'react'
 import { AES, enc } from 'crypto-js';
 import { Row, Col, Button } from 'react-bootstrap'
-import { HomeContext, KeychainContext } from '../../Context'
+import { HomeContext } from '../../Context'
 import { getExistingChains, getUserPassword, setLocalStorage } from '../../Utilty';
 
 export default function DefaultLayout() {
     const { updateHomeComponent } = useContext(HomeContext)
-    const { keychainData, setKeychainData } = useContext(KeychainContext)
 
     const loadRecoveryIfNeeded = () => {
         const recovery = new URLSearchParams(window.location.search).get('recovery')?.split('cryptoKeychain')
@@ -17,7 +16,7 @@ export default function DefaultLayout() {
         const recoveryHash = recovery[1].split(' ').join('+')
 
         const confirmRecovery = window.confirm(`recover keychain ${recoveryName}?`)
-        if (!confirmRecovery) return window.location.href = '/'
+        if (!confirmRecovery) return window.location.href = '/crypto-keychain'
 
         let pw
         let decryptedData
@@ -44,7 +43,7 @@ export default function DefaultLayout() {
         if (getExistingChains().indexOf(recoveryName) !== -1) name += '-copy'
 
         setLocalStorage(name, pw, decryptedData)
-        window.location.href = '/'
+        window.location.href = '/crypto-keychain'
 
     };
 
