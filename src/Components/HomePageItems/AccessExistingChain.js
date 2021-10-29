@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Col, Row, Button } from 'react-bootstrap'
 import { AppContext, KeychainContext } from '../../Context'
-import { getExistingChains, getLocalStorage, getUserPassword } from '../../Utilty'
+import { getExistingChains, getLocalStorageDecrypted, getUserPassword } from '../../Utilty'
 
 export default function AccessExistingChain() {
 
@@ -15,7 +15,7 @@ export default function AccessExistingChain() {
         if (pw === null) return
         if (!pw) handleAccessChain(keychainName)
 
-        const data = getLocalStorage(keychainName, pw)
+        const data = getLocalStorageDecrypted(keychainName, pw)
         // if data is undefined, password was wrong
         if (!data) return
 

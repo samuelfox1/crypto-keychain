@@ -1,9 +1,11 @@
-import { getLocalStorage } from "./getLocalStorage";
+import { getLocalStorageDecrypted } from "./getLocalStorageDecrypted";
+import { getLocalStorageEncrypted } from "./getLocalStorageEncrypted";
 import { setLocalStorage } from "./setLocalStorage";
 import { deleteKeychain } from "./deleteKeychain";
 
 export {
-    getLocalStorage,
+    getLocalStorageDecrypted,
+    getLocalStorageEncrypted,
     setLocalStorage,
     deleteKeychain
 }
