@@ -16,7 +16,7 @@ export default function DefaultLayout() {
         const recoveryHash = recovery[1].split(' ').join('+')
 
         const confirmRecovery = window.confirm(`recover keychain ${recoveryName}?`)
-        if (!confirmRecovery) return window.location.href = '/crypto-keychian'
+        if (!confirmRecovery) return window.location.href = '/crypto-keychain'
 
         let pw
         let decryptedData
@@ -43,7 +43,7 @@ export default function DefaultLayout() {
         if (getExistingChains().indexOf(recoveryName) !== -1) name += '-copy'
 
         setLocalStorage(name, pw, decryptedData)
-        window.location.href = '/crypto-keychian'
+        window.location.href = '/crypto-keychain'
 
     };
 
