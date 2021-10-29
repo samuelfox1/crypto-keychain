@@ -60,6 +60,7 @@ export default function KeychainSettings({ }) {
             %0A%0A%0A
             https://samuelfox1.github.io/crypto-keychain?recovery=${formatName}cryptoKeychain${hash}
             `
+        console.log(body)
         // window.open(`mailto:${email}?subject=cryptoKeychain_Backup_${keychainName}_${dateString}&body=${getLocalStorageEncrypted(keychainName)}`)
         window.open(`mailto:${email}?subject=cryptoKeychain_Backup_${formatName}_${dateString}&body=${body}`)
     }

@@ -1,48 +1,36 @@
 # crypto-keychain
-
-## Description 
-
- Generate and store passwords in an encrypted keychain
-
-#### [check it out!](https://samuelfox1.github.io/crypto-keychain) 
-
-
-## Table of Contents
-
-* [Description](#description)
-* [License](#license)
-* [Questions](#Questions)
-* [Story](#Story)
-* [Testing](#Testing)
-* [Usage](#Usage)
- 
- <br>
-
-
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/-VS%20Code-4D4D4D?logo=Visual%20Studio%20Code&logoColor=007ACC)
-![html](https://img.shields.io/badge/-HTML5-blue?logo=html5)
-![css](https://img.shields.io/badge/-CSS3-red?logo=css3)
-![javascript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
 ![license](https://img.shields.io/badge/License-MIT-blue)
 
-<br>
+![react](https://img.shields.io/badge/-react-000000?logo=react&logoColor=61DAFB)
+![bootstrap](https://img.shields.io/badge/-bootstrap-7952B3?logo=bootstrap&logoColor=white)
+![javascript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![cryptojs](https://img.shields.io/badge/-crypto%20js-white)
 
-### Usage
-1. navigate to the generate password tab.
-2. choose password parameters
-3. click to create a new password or access key 
+checkout the app [here](https://samuelfox1.github.io/crypto-keychain) 
 
-<br>
+<hr>
 
-#### Coming Soon
-1. create an encrypted keychain
-2. add and remove passwords to a keychain
-3. backup your keychain for safe keeping
-4. load a backup to access your stored passwords
+checkout the recovery feature
+- use [this](https://samuelfox1.github.io/crypto-keychain?recovery=crypto_keychaincryptoKeychainU2FsdGVkX18GrfwrKHr2z9JUurBjD8Yd6Jgep0knLnPJLesCvtzPRl+GEPafXTWL6tztTvBRC8urfuW9/r+ebqPwOZSNa45SzqtGpB7hHZh01rG5yy/KhFHq8FkeyWNgRXDADC0Tw46KnMiySQg5JTloi4z4awx1bS+WzyUE5KVjK6DjitkC+CqfTuXe/fzABVmcfoJCt7HG7q+5FnONk+0Nq61m78sGBXk7t673X6nFn+saxWFKZLD6dOHKZtXBlFYCjI6iugpAjBdyVxIVdu9zklpxmvNPgaNCH6ZYal7ht3QViQfftCVTbKyuCNFhDCRT0R8gIXRn30aKyYArzcPlST1PPdAf4Zj0LGDflEfDDierD9w7fVkRLb+1xH+jBHf/PS2ildr5WoLl1W3Y/OrIIYGDU8Hgjd6Dm0xGOUzQWghzFiIBMyaENNKNVDY3R+OV/NXHDtsIGHJewv4Gv8oCTem0zXXVAIPqJNZfVgky1gjnzYnHfaTMfFFkbcLZ0C8Bdh/UbIw9QeFHlKpqqg/Ny+Xy6jggBTCM/iHoYA9Zxjbzp+gB0oilZHQuCSTnMVUlEQ5jOl/Tv3be2WcK5A==) recovery link
+- use password: `password`
+- click 'access existing chain' to see the stored secrets
 
-<br>
+<hr>
+
+## Description 
+1. Create custom keychains to secure sensitive data
+2. Generate passwords 
+3. Backup keychains via email for safe keeping
+
+
+
+<div style="max-width:450px; display:flex; flex-wrap:wrap; justify-content:space-between;">
+<img style="margin-bottom:40px" src="./assets/IMG_9003.PNG" alt="screenshot-1" width="200px"/>
+<img style="margin-bottom:40px" src="./assets/IMG_9008.PNG" alt="screenshot-1" width="200px"/>
+<img style="margin-bottom:40px" src="./assets/IMG_9010.PNG" alt="screenshot-1" width="200px"/>
+<img style="margin-bottom:40px" src="./assets/IMG_9011.PNG" alt="screenshot-1" width="200px"/>
+</div>
+
 
 ### Questions
 
@@ -50,24 +38,6 @@
 | :--: | :----: | :-----: | :------: |
 | Samuel Fox | samueljasonfox@gmail.com | [![Github](./assets/images/logo/github.png)](https://github.com/samuelfox1) | [![LinkedIn](./assets/images/logo/linkedin.png)](https://www.linkedin.com/in/samuel-fox-tacoma) |
 
-<br>
-
-### License
-
-MIT License
-
-Copyright 2020 Samuel Fox
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-<br>
-
-The images found in 'assets/images/logo/' are trademarks of their respective companies and are under their terms and license.
+<hr>
 
 2021
-
-## [Top of page](#crypto-keychain)
