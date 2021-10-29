@@ -5,9 +5,6 @@ export const copyToClipboard = (value) => {
 }
 
 
-// export const focusAndCopyToCb = (el) => {
-//     const textVal = el.text().trim()
-//     if (!textVal) return
-//     el.select() && el.focus();
-//     copyToCb(textVal)
-// };
+export const focusOnElement = (el) => {
+    el.select();
+};

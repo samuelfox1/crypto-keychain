@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap'
-import { createPassword } from '../Utilty'
+import { FaCopy } from 'react-icons/fa'
+import { copyToClipboard, createPassword, focusOnElement } from '../Utilty'
 
 export default function PasswordGenerator() {
 
@@ -11,6 +12,8 @@ export default function PasswordGenerator() {
         value: 68
     })
     const [pwText, setPwText] = useState('')
+    const [copiedMsg, setCopiedMsg] = useState('')
+    const [displayCopyIcon, setDisplayCopyIcon] = useState(false)
     const [selectedValues, setSelectedValues] = useState([])
     const [checkBox, setCheckBox] = useState({
         number: {
@@ -102,6 +105,8 @@ export default function PasswordGenerator() {
     }
 
     const handleGeneratePassword = () => {
+        setCopiedMsg('')
+        setDisplayCopyIcon(false)
 
         const config = {
             values: selectedValues,
@@ -114,6 +119,7 @@ export default function PasswordGenerator() {
 
         setTimeout(() => {
             clearInterval(interval)
+            setDisplayCopyIcon(true)
             setDisplayedButton(btnOptions.activeBtn())
         }, 2000)
     }
@@ -132,7 +138,15 @@ export default function PasswordGenerator() {
 
     }, [selectedValues])
 
-    const handlePwTextChange = () => { }
+    const handlePwTextChange = ({ target: { value } }) => {
+        setPwText(value)
+    }
+
+    const handleCopyToClipboard = () => {
+        copyToClipboard(pwText)
+        setCopiedMsg('copied!')
+        focusOnElement(document.querySelector('textarea'))
+    }
 
     return (
         <Container className="my-5">
@@ -190,6 +204,15 @@ export default function PasswordGenerator() {
                                     />
                                 </Form.Group>
 
+                                {displayCopyIcon &&
+                                    <div className="d-flex justify-content-end align-items-center">
+                                        <h6 className="text-end m-0">{copiedMsg}</h6>
+                                        <FaCopy
+                                            className="m-2"
+                                            onClick={handleCopyToClipboard}
+                                        />
+                                    </div>
+                                }
                                 {displayedButton}
 
                             </Form>
