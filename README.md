@@ -25,10 +25,12 @@ checkout the recovery feature
 
 
 <div style="max-width:450px; display:flex; flex-wrap:wrap; justify-content:space-between;">
+
 <img style="margin-bottom:40px" src="./assets/IMG_9003.PNG" alt="screenshot-1" width="200px"/>
 <img style="margin-bottom:40px" src="./assets/IMG_9008.PNG" alt="screenshot-1" width="200px"/>
 <img style="margin-bottom:40px" src="./assets/IMG_9010.PNG" alt="screenshot-1" width="200px"/>
 <img style="margin-bottom:40px" src="./assets/IMG_9011.PNG" alt="screenshot-1" width="200px"/>
+
 </div>
 
 
