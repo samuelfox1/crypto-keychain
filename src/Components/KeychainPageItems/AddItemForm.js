@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 import { Col, Form, Row, Button } from 'react-bootstrap'
 import { KeychainContext } from '../../Context'
 import { createPassword, getUserPassword } from '../../Utilty'
-import { getLocalStorage, setLocalStorage } from '../../Utilty'
+import { getLocalStorageDecrypted, setLocalStorage } from '../../Utilty'
 
 export default function AddItemForm() {
 
@@ -35,7 +35,7 @@ export default function AddItemForm() {
         if (pw === null) return
         if (!pw) return handleAddKeychainItem()
 
-        const arr = getLocalStorage(name, pw)
+        const arr = getLocalStorageDecrypted(name, pw)
         console.log('here', arr)
         if (!arr) return handleAddKeychainItem()
         const updatedArr = [inputs, ...arr]

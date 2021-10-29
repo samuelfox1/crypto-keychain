@@ -2,7 +2,7 @@ import { AES, enc, } from "crypto-js/";
 
 import { keyBase } from '../config'
 
-export const getLocalStorage = (keychainName, pw) => {
+export const getLocalStorageDecrypted = (keychainName, pw) => {
     if (!keychainName) return console.log('no chain name selected');
 
     const existingData = localStorage.getItem(`${keyBase}-${keychainName}`);
