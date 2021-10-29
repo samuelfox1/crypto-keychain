@@ -12,7 +12,6 @@ export default function NavTabs() {
 
     const handleUpdateKey = (key) => {
         setKey(key)
-        console.log(key)
         updateAppComponent(key)
     }
 

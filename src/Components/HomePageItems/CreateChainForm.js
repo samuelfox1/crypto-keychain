@@ -16,9 +16,9 @@ export default function CreateChain() {
     })
 
     const [formInputs, setFormInputs] = useState({
-        name: 'test-0',
-        password: 'password',
-        confirmPassword: 'password'
+        name: '',
+        password: '',
+        confirmPassword: ''
     })
 
     const [validFormInputs, setValidFormInputs] = useState(false)
@@ -68,8 +68,6 @@ export default function CreateChain() {
         setValidFormInputs(true)
 
     }, [formInputs])
-
-    console.log('rendering: CreateChain')
 
     return (
         <Row className="justify-content-center">

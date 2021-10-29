@@ -8,8 +8,6 @@ import './App.css';
 function App() {
     const { AppComponent } = useContext(AppContext)
 
-    console.log('rendering: App')
-
     return (
         <>
             <KeychainProvider>

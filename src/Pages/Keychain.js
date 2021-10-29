@@ -20,8 +20,6 @@ export default function Keychain() {
         setDisplayChainSettings(!displayChainSettings)
     }
 
-    console.log('rendering: Keychain')
-
     return (
         <Container>
             <Row className="justify-content-center">

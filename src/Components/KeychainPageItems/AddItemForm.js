@@ -27,16 +27,13 @@ export default function AddItemForm() {
     const handleAddKeychainItem = (e) => {
         if (!e) return
         e.preventDefault()
-        console.log(inputs)
         const { name } = keychainData
-        console.log('here', name)
 
         const pw = getUserPassword()
         if (pw === null) return
         if (!pw) return handleAddKeychainItem()
 
         const arr = getLocalStorageDecrypted(name, pw)
-        console.log('here', arr)
         if (!arr) return handleAddKeychainItem()
         const updatedArr = [inputs, ...arr]
         setLocalStorage(keychainData.name, pw, updatedArr)
@@ -49,8 +46,6 @@ export default function AddItemForm() {
         if (!inputs.name || !inputs.value) return setValidInputs(false)
         if (!validInputs) setValidInputs(true)
     }, [inputs])
-
-    console.log('rendering addItemForm')
 
     return (
         <Row className="border shadow flex-column m-0 mb-3">

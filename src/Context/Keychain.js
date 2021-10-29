@@ -45,8 +45,6 @@ export const KeychainProvider = ({ children }) => {
         }
     }
 
-    console.log('rendering: KeychainProvider')
-
     return (
         <KeychainContext.Provider value={{
             KeychainComponent,

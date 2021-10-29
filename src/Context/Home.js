@@ -15,7 +15,6 @@ export const HomeProvider = ({ children }) => {
     }, [AppComponent, defaultKey])
 
     const updateHomeComponent = (componentName) => {
-        // setTimeout(() => {
         switch (componentName) {
             case defaultKey:
                 setHomeComponent(<DefaultLayout key={`Home-${componentName}`} />)
@@ -32,10 +31,7 @@ export const HomeProvider = ({ children }) => {
             default:
                 break;
         }
-        // }, 100)
     }
-
-    console.log('rendering: HomeProvider')
 
     return (
         <HomeContext.Provider value={{ HomeComponent, updateHomeComponent }}>
