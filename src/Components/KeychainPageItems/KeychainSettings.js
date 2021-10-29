@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
 import { AppContext, KeychainContext } from '../../Context'
-import { deleteKeychain, getNewChainName, getUserPassword, setLocalStorage } from '../../Utilty'
+import { deleteKeychain, getLocalStorageEncrypted, getNewChainName, getUserPassword, setLocalStorage } from '../../Utilty'
+import { keyBase } from '../../Utilty/config'
 
 export default function KeychainSettings({ }) {
 
@@ -14,19 +15,48 @@ export default function KeychainSettings({ }) {
         if (pw === null) return
         if (!pw) handleRenameChain()
 
-        const { name, items } = keychainData
-
         const newName = getNewChainName()
         // if no name is available / user clicked cancel during prompt
         if (!newName) return
-        console.log(newName)
 
+        const { name, items } = keychainData
         // save chain with new name
         setLocalStorage(newName, pw, items)
         // destroy old chain
         handleDestroyChain(name, pw)
         // update context state
         setKeychainData({ ...keychainData, name: newName })
+    }
+
+    const handleBackupChain = () => {
+        const pw = getUserPassword()
+        if (pw === null) return
+        if (!pw) handleBackupChain()
+
+        const email = prompt('enter email to send backup')
+        // const email = 'samueljasonfox@gmail.com'
+        if (email === null) return
+        if (!email) return handleBackupChain()
+        const { name: keychainName } = keychainData
+        const d = new Date()
+        const dateString = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
+
+        const hash = getLocalStorageEncrypted(keychainName)
+
+        const body = `backup code:
+%0A%0A%0A
+${hash}
+%0A%0A%0A
+backup link:
+%0A
+1. copy the url below
+%0A
+2. paste in your browser to recover the keychain
+%0A%0A%0A
+https://samuelfox1.github.io/crypto-keychain?recovery=${keychainName}cryptoKeychain${hash}
+`
+        // window.open(`mailto:${email}?subject=cryptoKeychain_Backup_${keychainName}_${dateString}&body=${getLocalStorageEncrypted(keychainName)}`)
+        window.open(`mailto:${email}?subject=cryptoKeychain_Backup_${keychainName}_${dateString}&body=${body}`)
     }
 
     const handleDestroyChain = (keychainName, pw) => {
@@ -37,8 +67,10 @@ export default function KeychainSettings({ }) {
 
         // confirm delete
         const confirmDelete = window.confirm(`Deleting ${keychainName}, are you sure?`)
-        if (confirmDelete) deleteKeychain(keychainName)
+        if (!confirmDelete) return
 
+        // delete chain
+        deleteKeychain(keychainName)
         // reset context state
         resetKeychainData()
         // redirect to landing
@@ -46,27 +78,35 @@ export default function KeychainSettings({ }) {
     }
 
     return (
-        <Row className="py-3 border">
-            <Col
-                className=" col-6 d-flex">
-
-                <h6>settings</h6>
-            </Col>
-            <Col className=" col-6 text-end">
-                <Button
-                    className="mb-3"
-                    variant="outline-warning text-dark"
-                    onClick={handleRenameChain}
-                >
-                    rename
-                </Button>
-                <Button
-                    className=""
-                    variant="outline-danger text-dark"
-                    onClick={() => handleDestroyChain(keychainData.name)}
-                >
-                    destroy
-                </Button>
+        <Row className="px-3">
+            <Col>
+                <Row className="mb-3">
+                    <h6 className="px-0">settings</h6>
+                </Row>
+                <Row>
+                    <Button
+                        className="mb-3"
+                        variant="outline-warning text-dark"
+                        onClick={handleRenameChain}
+                    >
+                        rename
+                    </Button>
+                    <Button
+                        className="mb-3"
+                        variant="outline-info text-dark"
+                        onClick={handleBackupChain}
+                    >
+                        backup
+                    </Button>
+                    <Button
+                        className="my-3"
+                        size="sm"
+                        variant="outline-danger text-dark"
+                        onClick={() => handleDestroyChain(keychainData.name)}
+                    >
+                        destroy
+                    </Button>
+                </Row>
             </Col>
         </Row>
     )

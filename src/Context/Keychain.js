@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 import { AddItemForm } from '../Components/KeychainPageItems';
-import { getLocalStorage, getUserPassword, setLocalStorage } from '../Utilty';
+import { getLocalStorageDecrypted, getUserPassword, setLocalStorage } from '../Utilty';
 
 const defaultKeychainData = { name: '', items: [] }
 
@@ -20,7 +20,7 @@ export const KeychainProvider = ({ children }) => {
             // when user clicks cancel
             if (pw === null) return
             // we'll get data back for this chain if password is correct
-            if (!getLocalStorage(keychainData.name, pw)) pw = ''
+            if (!getLocalStorageDecrypted(keychainData.name, pw)) pw = ''
         }
 
         // final confirmation before delete
