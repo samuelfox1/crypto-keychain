@@ -46,6 +46,7 @@ export default function KeychainSettings({ }) {
         const dateString = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`
 
         const hash = getLocalStorageEncrypted(keychainName).split('+').join('%2b')
+        const formatName = keychainName.split(' ').join('_')
 
         const body = `backup code:
             %0A%0A%0A
@@ -57,10 +58,10 @@ export default function KeychainSettings({ }) {
             %0A
             2. paste in your browser to recover the keychain
             %0A%0A%0A
-            https://samuelfox1.github.io/crypto-keychain?recovery=${keychainName.split(' ').join('_')}cryptoKeychain${hash}
+            https://samuelfox1.github.io/crypto-keychain?recovery=${formatName}cryptoKeychain${hash}
             `
         // window.open(`mailto:${email}?subject=cryptoKeychain_Backup_${keychainName}_${dateString}&body=${getLocalStorageEncrypted(keychainName)}`)
-        window.open(`mailto:${email}?subject=cryptoKeychain_Backup_${keychainName}_${dateString}&body=${body}`)
+        window.open(`mailto:${email}?subject=cryptoKeychain_Backup_${formatName}_${dateString}&body=${body}`)
     }
 
     const handleDestroyChain = (keychainName, pw, force = false) => {
