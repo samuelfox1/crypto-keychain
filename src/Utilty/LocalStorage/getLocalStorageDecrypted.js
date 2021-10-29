@@ -14,5 +14,8 @@ export const getLocalStorageDecrypted = (keychainName, pw) => {
         const decryptedData = JSON.parse(bytes.toString(enc.Utf8));
         return decryptedData;
 
-    } catch (error) { alert('unauthorized') };
+    } catch (error) {
+        alert('unauthorized')
+        return null
+    };
 };
