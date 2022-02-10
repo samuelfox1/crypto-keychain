@@ -2,9 +2,7 @@
 
 Create custom passwords, build encrypted kechains, and generate secure backups with this all in one solution.
 
-checkout the app [here](https://samuelfox1.github.io/crypto-keychain) 
-
-![license](https://img.shields.io/badge/License-MIT-blue)
+[Check it out!](https://samuelfox1.github.io/crypto-keychain) 
 
 <br>
 
@@ -49,6 +47,8 @@ checkout the recovery feature
 | :--: | :----: | :-----: | :------: |
 | Samuel Fox | samueljasonfox@gmail.com | [![Github](./assets/images/logo/github.png)](https://github.com/samuelfox1) | [![LinkedIn](./assets/images/logo/linkedin.png)](https://www.linkedin.com/in/samuel-fox-tacoma) |
 
-<hr>
+<br>
+
+![license](https://img.shields.io/badge/License-MIT-blue)
 
 2021
